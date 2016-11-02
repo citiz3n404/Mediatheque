@@ -4,6 +4,7 @@
 package mediatheque;
 
 import java.util.Date;
+import java.util.UUID;
 
 
 
@@ -13,8 +14,7 @@ import java.util.Date;
  * @author  Anthony CHAFFOT
  */
 public abstract class Media {
-    private int id;
-    private static int ID_media;
+    private String ID_media;
     private String title;
     private String author;
     private Date year;
@@ -26,8 +26,7 @@ public abstract class Media {
     // CONSTRUCTOR
     //**************************************************************************
     public Media(String title, String author, Date year, boolean loanable, boolean available, int nbDispo){
-        this.id         = ID_media;
-        ID_media ++;
+        this.ID_media   = UUID.randomUUID().toString();
         this.title      = title;
         this.author     = author;
         this.year       = year;

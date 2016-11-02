@@ -4,6 +4,7 @@
 package mediatheque;
 
 import java.util.Date;
+import java.util.UUID;
 
 
 
@@ -13,32 +14,30 @@ import java.util.Date;
  * @author  Anthony CHAFFOT
  */
 public class Client {
-    private int id;
-    private static int ID_client;
-    private String firstName;
-    private String lastName;
-    private Adress adress;
-    private Date register_date;
-    private Date renewal_date;
-    private int nbLoanDone;
-    private int nbLoanDelayed;
-    private int nbCurrentLoan;
+    private String      ID_client;
+    private String      firstName;
+    private String      lastName;
+    private Adress      adress;
+    private Date        register_date;
+    private Date        renewal_date;
+    private int         nbLoanDone;
+    private int         nbLoanDelayed;
+    private int         nbCurrentLoan;
     
     
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
     public Client(String firstName, String lastName, Adress adress, Date register_date, Date renewal_date, int nbLoanDone, int nbLoandDelayed, int nbCurrentLoan){
-        this.id = ID_client ++;
-        ID_client ++;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.adress = adress;
-        this.register_date = register_date;
-        this.renewal_date = renewal_date;
-        this.nbLoanDone = nbLoanDone;
-        this.nbLoanDelayed = nbLoandDelayed;
-        this.nbCurrentLoan = nbCurrentLoan;
+        this.ID_client          = UUID.randomUUID().toString();
+        this.firstName          = firstName;
+        this.lastName           = lastName;
+        this.adress             = adress;
+        this.register_date      = register_date;
+        this.renewal_date       = renewal_date;
+        this.nbLoanDone         = nbLoanDone;
+        this.nbLoanDelayed      = nbLoandDelayed;
+        this.nbCurrentLoan      = nbCurrentLoan;
     }
 
     //**************************************************************************

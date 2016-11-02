@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mediatheque;
 
 import java.net.URL;
@@ -24,7 +19,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        label.setText("tu veux voir ma bite?");
+    }
+    
+    @FXML
+    private void handleButtonAction2(ActionEvent event) {
+        label.setText("Aurevoir !");
     }
     
     @Override
