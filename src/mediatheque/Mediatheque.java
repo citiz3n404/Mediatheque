@@ -1,32 +1,37 @@
+/* 
+ * Creation : 2 nov. 2016
+ */
 package mediatheque;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import java.util.ArrayList;
+
+
 
 /**
- *
- * @author antho
+ * @date    2 nov. 2016
+ * @author  Benjamin KRAFFT
+ * @author  Anthony CHAFFOT
  */
-public class Mediatheque extends Application {
+public class Mediatheque {
+    private String name;
+    private ArrayList<Media> medias = new ArrayList<>();
     
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
+    //**************************************************************************
+    // CONSTRUCTOR
+    //**************************************************************************
+    public Mediatheque(String name){
+        this.name = name;
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
+    //**************************************************************************
+    // METHODS
+    //**************************************************************************
+    public void addMedia(Media media){
+        medias.add(media);
     }
-    
+
+    //**************************************************************************
+    // SETTERS / GETTERS
+    //**************************************************************************
+
 }
