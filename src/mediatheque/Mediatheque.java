@@ -14,7 +14,8 @@ import java.util.ArrayList;
  */
 public class Mediatheque {
     private String name;
-    private ArrayList<Media> medias = new ArrayList<>();
+    private ArrayList<Media> mediasList = new ArrayList<>();
+    private ArrayList<Client> clientsList = new ArrayList<>();
     
     //**************************************************************************
     // CONSTRUCTOR
@@ -27,8 +28,13 @@ public class Mediatheque {
     // METHODS
     //**************************************************************************
     public void addMedia(Media media){
-        medias.add(media);
+        mediasList.add(media);
     }
+    
+    public void addCLient(Client client){
+        clientsList.add(client);
+    }
+    
 
     //**************************************************************************
     // SETTERS / GETTERS
