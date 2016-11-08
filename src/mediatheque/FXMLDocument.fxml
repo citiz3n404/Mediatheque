@@ -40,24 +40,16 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <HBox prefHeight="40.0">
+            <HBox prefHeight="40.0" style="-fx-background-color: #444444;">
                <children>
                   <ImageView fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="USERS">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </Label>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Label text="Selected user : ">
+                  <Label text="Selected user : " textFill="WHITE">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="Bernard">
+                  <Label text="Bernard" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="20.0" top="10.0" />
                      </HBox.margin>
@@ -65,12 +57,12 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label text="Medias : ">
+                  <Label text="Medias : " textFill="WHITE">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="6">
+                  <Label text="6" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="20.0" top="10.0" />
                      </HBox.margin>
@@ -86,14 +78,132 @@
    <right>
       <VBox prefHeight="703.0" prefWidth="284.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="261.0" pickOnBounds="true" preserveRatio="true" />
-            <Label text="Label">
+            <ImageView fitHeight="150.0" fitWidth="261.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Separator prefWidth="200.0">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Separator>
+            <HBox>
+               <children>
+                  <Label text="NOM">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Anthony">
+                     <padding>
+                        <Insets left="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="PRENOM">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label text="CHAFFOT">
+                     <padding>
+                        <Insets left="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Separator>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="ADRESSE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Separator>
+            <Label text="EMPRUNTS EN COURS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" top="30.0" />
+               </padding>
             </Label>
-            <Label text="Label" />
+            <TableView prefHeight="244.0" prefWidth="264.0">
+              <columns>
+                <TableColumn prefWidth="141.0" text="Titre" />
+                <TableColumn prefWidth="127.0" text="Rendu" />
+              </columns>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TableView>
          </children>
       </VBox>
    </right>
+   <center>
+      <VBox prefHeight="528.0" prefWidth="740.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField promptText="RECHERCHE">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TableView prefHeight="613.0" prefWidth="686.0">
+              <columns>
+                <TableColumn prefWidth="241.0" text="NOM / PRENOM" />
+                <TableColumn prefWidth="245.0" text="NB EMPRUNTS" />
+                  <TableColumn prefWidth="245.0" text="NB RETARDS" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TableView>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0">
+              <buttons>
+                <Button mnemonicParsing="false" text="New" />
+                  <Button mnemonicParsing="false" text="Edit" />
+                  <Button mnemonicParsing="false" text="Delete" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <Pane prefHeight="703.0" prefWidth="54.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="-67.0" layoutY="132.0" rotate="-90.0" text="USERS MANAGER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </left>
 </BorderPane>
