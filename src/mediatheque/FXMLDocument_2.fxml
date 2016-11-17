@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mediatheque.FXMLDocumentController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -147,23 +147,6 @@
                   <Insets left="10.0" right="10.0" />
                </padding>
             </Separator>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label text="ADRESSE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" top="10.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </HBox>
-            <Separator prefWidth="200.0">
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
-            </Separator>
             <Label text="EMPRUNTS EN COURS">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -178,9 +161,26 @@
                 <TableColumn prefWidth="127.0" text="Rendu" />
               </columns>
                <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </TableView>
+            <VBox>
+               <children>
+                  <Separator prefWidth="200.0">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Separator>
+                  <Label prefWidth="125.0" text="DATE DE RENDU">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </VBox>
    </right>
@@ -192,12 +192,11 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
-            <TableView fx:id="tableUsers" prefHeight="613.0" prefWidth="686.0" tableMenuButtonVisible="true">
+            <TableView prefHeight="613.0" prefWidth="686.0">
               <columns>
-                <TableColumn fx:id="fisrtnameCol" prefWidth="139.0" text="NOM" />
-                  <TableColumn fx:id="lastnameCol" prefWidth="129.0" text="PRENOM" />
-                <TableColumn fx:id="nbEmpruntCol" prefWidth="179.0" text="NB EMPRUNTS" />
-                  <TableColumn fx:id="nbLateCol" prefWidth="163.0" text="NB RETARDS" />
+                <TableColumn prefWidth="214.0" text="MEDIA" />
+                <TableColumn prefWidth="242.0" text="TITRE" />
+                  <TableColumn prefWidth="245.0" text="CLIENT" />
               </columns>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -208,9 +207,7 @@
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button mnemonicParsing="false" text="New" />
-                  <Button mnemonicParsing="false" text="Edit" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                <Button mnemonicParsing="false" text="NOUVELLE RESERVATION" />
               </buttons>
             </ButtonBar>
          </children>
@@ -219,7 +216,7 @@
    <left>
       <Pane prefHeight="703.0" prefWidth="54.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="-67.0" layoutY="132.0" rotate="-90.0" text="USERS MANAGER">
+            <Label layoutX="-85.0" layoutY="132.0" rotate="-90.0" text="OUSTANDING LOAN">
                <font>
                   <Font size="24.0" />
                </font>
