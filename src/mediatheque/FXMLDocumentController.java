@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,10 +18,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author antho
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController implements Initializable, ControlledScreen {
+    
+    private Mediatheque m;
+    
+    private ScreensManager sm;
     
     @FXML
-    private Label label;
+    private Button btn;
     
     @FXML
     private TableView<Client> tableUsers;
@@ -37,16 +42,15 @@ public class FXMLDocumentController implements Initializable {
     @FXML 
     private TableColumn<Client, Integer> nbLateCol;
     
+    ObservableList<Client> clients = FXCollections.observableArrayList();
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("You clicked me!");
+        clients.add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
     }
     
     @FXML
     private void handleButtonAction2(ActionEvent event) {
-        label.setText("Aurevoir !");
     }
     
     @Override
@@ -60,14 +64,29 @@ public class FXMLDocumentController implements Initializable {
     
     public ObservableList<Client> getClients(){
         //ICI on charge la base de données.
-        ObservableList<Client> clients = FXCollections.observableArrayList();
-        clients.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250), new Date(), new Date(), 0, 0, 0));
-        clients.add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250), new Date(), new Date(), 0, 0, 0));
-        clients.add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250), new Date(), new Date(), 0, 0, 0));
-        clients.add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250), new Date(), new Date(), 0, 0, 0));
-        clients.add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250), new Date(), new Date(), 0, 0, 0));
-        clients.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250), new Date(), new Date(), 0, 0, 0));
+        
+        clients.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        clients.add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        clients.add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        clients.add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        clients.add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        clients.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
         return clients;
+    }
+
+    @Override
+    public void setScreenParent(ScreensManager screenPage) {
+        this.sm = screenPage;
+    }
+
+    @Override
+    public void setDatas(Object o) {
+        m = (Mediatheque) o;
+    }
+    
+    @FXML
+    private void goToScreen2(ActionEvent event){
+       sm.setScreen(App.screen2ID);
     }
     
 }
