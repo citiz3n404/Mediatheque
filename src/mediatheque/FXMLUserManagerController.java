@@ -21,7 +21,7 @@ import javafx.scene.image.ImageView;
  *
  * @author antho
  */
-public class FXMLDocumentController extends ControlledScreen implements Initializable {
+public class FXMLUserManagerController extends ControlledScreen implements Initializable {
 
     
     @FXML

@@ -13,12 +13,15 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
     
-    public static String screen1ID = "SCREEN1";
-    public static String screen1File = "FXMLDocument.fxml";
-    public static String screen2ID = "screen2";
-    public static String screen2File = "FXMLDocument_1.fxml";
-    public static String screen3ID = "screen3";
-    public static String screen3File = "FXMLDocument_2.fxml";
+    public static String screen1ID = "UserManager";
+    public static String screen1File = "FXMLUserManager.fxml";
+    public static String screen2ID = "NewUser";
+    public static String screen2File = "FXMLNewUser.fxml";
+    public static String screen3ID = "OutStandingLoan";
+    public static String screen3File = "FXMLOutStandingLoan.fxml";
+    public static String screen4ID = "NewLoan";
+    public static String screen4File = "FXMLNewLoan.fxml";
+    
     
     @Override
     public void start(Stage stage) throws Exception {
