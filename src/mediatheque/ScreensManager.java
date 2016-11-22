@@ -51,6 +51,7 @@ public class ScreensManager extends StackPane{
             myScreenControler.setScreenParent(this);
             myScreenControler.setDatas(datas);
             addScreen(name, loadScreen);
+            myScreenControler.updateAfterLoadingScreen();
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage()+" Le screen ne s'est pas chargé");

@@ -5,6 +5,8 @@ package mediatheque;
 
 import java.util.Date;
 import java.util.UUID;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 
@@ -23,6 +25,8 @@ public class Client {
     private int         nbLoanDone;
     private int         nbLoanDelayed;
     private int         nbCurrentLoan;
+    private String      img;
+    private ObservableList<Media> BorrowingList = FXCollections.observableArrayList();
     
     
     //**************************************************************************
@@ -38,6 +42,7 @@ public class Client {
         this.nbLoanDone         = 0;
         this.nbLoanDelayed      = 0;
         this.nbCurrentLoan      = 0;
+        this.img = "file:img/achille.jpg";
     }
     
     public Client(String firstName, String lastName, Adress adress, Date register_date, Date renewal_date, int nbLoanDone, int nbLoandDelayed, int nbCurrentLoan){
@@ -170,6 +175,34 @@ public class Client {
      */
     public void setNbCurrentLoan(int nbCurrentLoan) {
         this.nbCurrentLoan = nbCurrentLoan;
+    }
+
+    /**
+     * @return the img
+     */
+    public String getImg() {
+        return img;
+    }
+
+    /**
+     * @param img the img to set
+     */
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    /**
+     * @return the BorrowingList
+     */
+    public ObservableList<Media> getBorrowingList() {
+        return BorrowingList;
+    }
+
+    /**
+     * @param BorrowingList the BorrowingList to set
+     */
+    public void setBorrowingList(ObservableList<Media> BorrowingList) {
+        this.BorrowingList = BorrowingList;
     }
 
 }

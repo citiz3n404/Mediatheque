@@ -25,6 +25,16 @@ public class App extends Application {
         ScreensManager mainContainer = new ScreensManager();
         Mediatheque m = new Mediatheque("Mediatheque");
         
+        m.clientsList.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.clientsList.add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.clientsList.add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.clientsList.add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.clientsList.add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.clientsList.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        
+        m.clientsList.get(2).setImg("file:img/profil2.png");
+        m.clientsList.get(4).setImg("file:img/profil2.png");
+        m.clientsList.get(5).setImg("file:img/profil.png");
         mainContainer.loadScreen(App.screen1ID, App.screen1File, m);
         mainContainer.loadScreen(App.screen2ID, App.screen2File, m);
         mainContainer.loadScreen(App.screen3ID, App.screen3File, m);

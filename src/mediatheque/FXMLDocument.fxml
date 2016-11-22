@@ -65,7 +65,7 @@
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="Bernard" textFill="WHITE">
+                  <Label fx:id="tempUserLabel" text="Bernard" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="20.0" top="10.0" />
                      </HBox.margin>
@@ -78,7 +78,7 @@
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="6" textFill="WHITE">
+                  <Label fx:id="tempMediasLabel" text="6" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="20.0" top="10.0" />
                      </HBox.margin>
@@ -96,7 +96,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="261.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profilPicture" fitHeight="150.0" fitWidth="261.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profil.png" />
                      </image>
@@ -121,7 +121,7 @@
                         <Insets left="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label text="Anthony">
+                  <Label fx:id="lastNameLabel" text="Anthony">
                      <padding>
                         <Insets left="10.0" top="10.0" />
                      </padding>
@@ -138,7 +138,7 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label text="CHAFFOT">
+                  <Label fx:id="firstNameLabel" text="CHAFFOT">
                      <padding>
                         <Insets left="10.0" top="10.0" />
                      </padding>
@@ -163,6 +163,11 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </padding>
                   </Label>
+                  <TextArea fx:id="adressTextArea" editable="false" prefHeight="73.0" prefWidth="202.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextArea>
                </children>
             </HBox>
             <Separator prefWidth="200.0">

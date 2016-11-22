@@ -12,17 +12,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
  * @author antho
  */
-public class FXMLDocumentController implements Initializable, ControlledScreen {
-    
-    private Mediatheque m;
-    
-    private ScreensManager sm;
+public class FXMLDocumentController extends ControlledScreen implements Initializable {
+
     
     @FXML
     private Button btn;
@@ -42,15 +42,38 @@ public class FXMLDocumentController implements Initializable, ControlledScreen {
     @FXML 
     private TableColumn<Client, Integer> nbLateCol;
     
-    ObservableList<Client> clients = FXCollections.observableArrayList();
+    @FXML
+    private Label firstNameLabel;
+    
+    @FXML
+    private Label lastNameLabel;
+    
+    @FXML
+    private TextArea adressTextArea;
+    
+    @FXML
+    private ImageView profilPicture;
+    
+    @FXML
+    private Label tempUserLabel;
+    
+    @FXML
+    private Label tempMediasLabel;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        clients.add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
     }
     
     @FXML
     private void handleButtonAction2(ActionEvent event) {
+    }
+    
+    @FXML
+    private void handleLineSelectAction(ActionEvent event){
+        Client c = tableUsers.getSelectionModel().getSelectedItem();
+        firstNameLabel.setText(c.getLastName());
+        lastNameLabel.setText(c.getFirstName());
     }
     
     @Override
@@ -59,34 +82,37 @@ public class FXMLDocumentController implements Initializable, ControlledScreen {
         lastnameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         nbEmpruntCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDone"));
         nbLateCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDelayed"));
-        tableUsers.setItems(getClients());
+        tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            //Check whether item is selected and set value of selected item to Label
+            if (tableUsers.getSelectionModel().getSelectedItem() != null) {
+                firstNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getFirstName());
+                lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
+                adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
+                profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
+                mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
+                tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
+                tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
+            }
+        });
     }    
     
-    public ObservableList<Client> getClients(){
-        //ICI on charge la base de données.
-        
-        clients.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        clients.add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        clients.add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        clients.add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        clients.add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        clients.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        return clients;
-    }
-
-    @Override
-    public void setScreenParent(ScreensManager screenPage) {
-        this.sm = screenPage;
-    }
-
-    @Override
-    public void setDatas(Object o) {
-        m = (Mediatheque) o;
-    }
+ 
     
     @FXML
     private void goToScreen2(ActionEvent event){
        sm.setScreen(App.screen2ID);
+    }
+
+    @Override
+    public void updateAfterLoadingScreen() {
+        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        
+        tableUsers.setItems(mediatheque.getClientsList()); 
     }
     
 }
