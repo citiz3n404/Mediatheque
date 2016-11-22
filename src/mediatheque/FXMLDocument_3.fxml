@@ -91,8 +91,8 @@
                   <TableColumn prefWidth="75.0" text="Column X" />
                   <TableColumn prefWidth="75.0" text="Column X" />
                   <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="106.0" text="Column X" />
+                  <TableColumn prefWidth="99.0" text="Column X" />
               </columns>
                <opaqueInsets>
                   <Insets left="25.0" />

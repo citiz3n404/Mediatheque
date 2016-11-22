@@ -82,18 +82,7 @@ public class FXMLDocumentController extends ControlledScreen implements Initiali
         lastnameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         nbEmpruntCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDone"));
         nbLateCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDelayed"));
-        tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-            //Check whether item is selected and set value of selected item to Label
-            if (tableUsers.getSelectionModel().getSelectedItem() != null) {
-                firstNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getFirstName());
-                lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
-                adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
-                profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
-                mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
-                tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
-                tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
-            }
-        });
+        profilPicture.setImage(new Image("file:img/profil2.png"));
     }    
     
  
@@ -112,7 +101,19 @@ public class FXMLDocumentController extends ControlledScreen implements Initiali
         mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
         mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
         
-        tableUsers.setItems(mediatheque.getClientsList()); 
+        tableUsers.setItems(mediatheque.getClientsList());
+        tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            //Check whether item is selected and set value of selected item to Label
+            if (tableUsers.getSelectionModel().getSelectedItem() != null) {
+                firstNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getFirstName());
+                lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
+                adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
+                profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
+                mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
+                tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
+                tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
+            }
+        });
     }
     
 }
