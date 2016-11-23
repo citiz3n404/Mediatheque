@@ -87,42 +87,48 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
         if(!str.isEmpty()){
             tableUsers.setItems(mediatheque.getClientsList());
             for(int i=0; i<tableUsers.getItems().size(); i++){
-                if(tableUsers.getItems().get(i).getFirstName().startsWith(str) || tableUsers.getItems().get(i).getLastName().startsWith(str) ||
-                        tableUsers.getItems().get(i).getFirstName().toLowerCase().startsWith(str) || tableUsers.getItems().get(i).getLastName().toLowerCase().startsWith(str)){
+                if(tableUsers.getItems().get(i).getFirstName().toLowerCase().startsWith(str.toLowerCase()) || tableUsers.getItems().get(i).getLastName().toLowerCase().startsWith(str.toLowerCase())){
                     tempList.add(tableUsers.getItems().get(i));
                 }
             }
 
             tableUsers.setItems(tempList);
-            tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-                //Check whether item is selected and set value of selected item to Label
-                if (tableUsers.getSelectionModel().getSelectedItem() != null) {
-                    firstNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getFirstName());
-                    lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
-                    adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
-                    profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
-                    mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
-                    tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
-                    tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
-                }
-            });
+            /*tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            //Check whether item is selected and set value of selected item to Label
+            if (tableUsers.getSelectionModel().getSelectedItem() != null) {
+            firstNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getFirstName());
+            lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
+            adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
+            profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
+            mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
+            tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
+            tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
+            }
+            });*/
         } else{
             tableUsers.setItems(mediatheque.getClientsList());
-            tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-                //Check whether item is selected and set value of selected item to Label
-                if (tableUsers.getSelectionModel().getSelectedItem() != null) {
-                    firstNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getFirstName());
-                    lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
-                    adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
-                    profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
-                    mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
-                    tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
-                    tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
-                }
-            });
+            /*tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            //Check whether item is selected and set value of selected item to Label
+            if (tableUsers.getSelectionModel().getSelectedItem() != null) {
+            firstNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getFirstName());
+            lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
+            adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
+            profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
+            mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
+            tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
+            tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
+            }
+            });*/
         }
         
         //System.out.println(str);
+    }
+    
+    @FXML
+    private void handleSelectAction(ActionEvent event){
+        mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
+        tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
+        tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
     }
     
     @Override
@@ -156,9 +162,6 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
                 lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
                 adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
                 profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
-                mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
-                tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
-                tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
             }
         });
     }
