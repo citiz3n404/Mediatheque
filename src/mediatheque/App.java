@@ -13,8 +13,10 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
     
-    public static String screen1ID = "UserManager";
-    public static String screen1File = "FXMLUserManager.fxml";
+    public static String screenHomeID = "Home";
+    public static String screenHomeFile = "FXMLHome.fxml";
+    public static String screenUserManagerID = "UserManager";
+    public static String screenUserManagerFile = "FXMLUserManager.fxml";
     public static String screen2ID = "NewUser";
     public static String screen2File = "FXMLNewUser.fxml";
     public static String screen3ID = "OutStandingLoan";
@@ -38,11 +40,13 @@ public class App extends Application {
         m.clientsList.get(2).setImg("file:img/profil2.png");
         m.clientsList.get(4).setImg("file:img/profil2.png");
         m.clientsList.get(5).setImg("file:img/profil.png");
-        mainContainer.loadScreen(App.screen1ID, App.screen1File, m);
+        
+        mainContainer.loadScreen(App.screenHomeID, App.screenHomeFile, m);
+        mainContainer.loadScreen(App.screenUserManagerID, App.screenUserManagerFile, m);
         mainContainer.loadScreen(App.screen2ID, App.screen2File, m);
         mainContainer.loadScreen(App.screen3ID, App.screen3File, m);
         
-        mainContainer.setScreen(App.screen1ID);
+        mainContainer.setScreen(App.screenHomeID);
         
         Group root = new Group();
         root.getChildren().addAll(mainContainer);

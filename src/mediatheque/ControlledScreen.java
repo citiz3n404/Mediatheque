@@ -1,6 +1,9 @@
 
 package mediatheque;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
 
 /**
  * @date    2 nov. 2016
@@ -22,4 +25,9 @@ public abstract class ControlledScreen {
     }
     
     public abstract void updateAfterLoadingScreen();
+    
+    @FXML
+    protected void goToScreenUserManager(ActionEvent event){
+       sm.setScreen(App.screenUserManagerID);
+    }
 }
