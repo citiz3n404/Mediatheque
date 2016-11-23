@@ -24,6 +24,7 @@ public class TempCart {
     // CONSTRUCTOR
     //**************************************************************************
     public TempCart(){
+        client = new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250));
         medias = new ArrayList<>();
     }
 

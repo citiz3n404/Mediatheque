@@ -20,16 +20,21 @@ public class Livre extends Media{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Livre(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, int duration, double cost){
-        super(title, author, year, loanable, available, nbDispo);
+    public Livre(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, int duration, int pages, double cost){
+        super(title, author, year, loanable, available, nbDispo, "BOOK");
         this.DURATION = duration;
         this.COST = cost;
+        this.nbPage = pages;
     }
 
     //**************************************************************************
     // METHODS
     //**************************************************************************
 
+    @Override
+    public String toString(){
+        return "Pages : "+nbPage;
+    }
     //**************************************************************************
     // SETTERS / GETTERS
     //**************************************************************************

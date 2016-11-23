@@ -17,9 +17,9 @@ import javafx.collections.ObservableList;
 public class Mediatheque {
     private String name;
     
-    ObservableList<Client> clientsList = FXCollections.observableArrayList();
-    ObservableList<Media> mediasList = FXCollections.observableArrayList();
-    TempCart tempCart;
+    private ObservableList<Client> clientsList = FXCollections.observableArrayList();
+    private ObservableList<Media> mediasList = FXCollections.observableArrayList();
+    private TempCart tempCart;
     
     //**************************************************************************
     // CONSTRUCTOR
@@ -72,6 +72,34 @@ public class Mediatheque {
      */
     public void setClientsList(ObservableList<Client> clientsList) {
         this.clientsList = clientsList;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the tempCart
+     */
+    public TempCart getTempCart() {
+        return tempCart;
+    }
+
+    /**
+     * @param tempCart the tempCart to set
+     */
+    public void setTempCart(TempCart tempCart) {
+        this.tempCart = tempCart;
     }
 
 }

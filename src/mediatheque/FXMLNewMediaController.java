@@ -28,5 +28,10 @@ public class FXMLNewMediaController extends ControlledScreen implements Initiali
     public void updateAfterLoadingScreen() {
        
     }
+
+    @Override
+    public void updateDatas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

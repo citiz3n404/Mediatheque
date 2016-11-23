@@ -27,7 +27,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mediatheque.FXMLUserManagerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mediatheque.FXMLMediaManagerController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -119,7 +119,7 @@
             </Separator>
             <HBox>
                <children>
-                  <Label text="NOM">
+                  <Label prefWidth="75.0" text="TYPE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -127,7 +127,7 @@
                         <Insets left="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="lastNameLabel" text="Anthony">
+                  <Label fx:id="l_type" text="Audio">
                      <padding>
                         <Insets left="10.0" top="10.0" />
                      </padding>
@@ -136,7 +136,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label text="PRENOM">
+                  <Label prefWidth="75.0" text="TITLE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -144,9 +144,43 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="firstNameLabel" text="CHAFFOT">
+                  <Label fx:id="l_title" text="CHAFFOT">
                      <padding>
                         <Insets left="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefWidth="75.0" text="AUTHOR">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="l_author" text="CHAFFOT">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefWidth="75.0" text="DATE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="l_date" text="CHAFFOT">
+                     <padding>
+                        <Insets left="10.0" />
                      </padding>
                   </Label>
                </children>
@@ -161,7 +195,7 @@
             </Separator>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="ADRESSE">
+                  <Label text="INFOS">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -169,13 +203,12 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <TextArea fx:id="adressTextArea" editable="false" prefHeight="73.0" prefWidth="202.0">
+                  <TextArea fx:id="ta_infos" prefHeight="200.0" prefWidth="200.0">
                      <HBox.margin>
-                        <Insets bottom="5.0" left="10.0" top="4.0" />
+                        <Insets bottom="5.0" left="20.0" right="10.0" top="5.0" />
                      </HBox.margin>
                   </TextArea>
-               </children>
-            </HBox>
+               </children></HBox>
             <Separator prefWidth="200.0">
                <padding>
                   <Insets left="10.0" right="10.0" />
@@ -209,12 +242,13 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
-            <TableView fx:id="tableUsers" prefHeight="613.0" prefWidth="686.0" tableMenuButtonVisible="true">
+            <TableView fx:id="tableMedias" prefHeight="613.0" prefWidth="686.0" tableMenuButtonVisible="true">
               <columns>
-                <TableColumn fx:id="fisrtnameCol" prefWidth="139.0" text="NOM" />
-                  <TableColumn fx:id="lastnameCol" prefWidth="129.0" text="PRENOM" />
-                <TableColumn fx:id="nbEmpruntCol" prefWidth="179.0" text="NB EMPRUNTS" />
-                  <TableColumn fx:id="nbLateCol" prefWidth="163.0" text="NB RETARDS" />
+                <TableColumn fx:id="typeCol" prefWidth="139.0" text="TYPE" />
+                  <TableColumn fx:id="titleCol" prefWidth="129.0" text="TITRE" />
+                <TableColumn fx:id="authorCol" prefWidth="179.0" text="AUTHOR" />
+                  <TableColumn fx:id="yearCol" prefWidth="163.0" text="YEAR" />
+                  <TableColumn fx:id="nbAvailableCol" prefWidth="163.0" text="NB AVAILABLE" />
               </columns>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -225,9 +259,9 @@
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                  <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleSelectAction" text="Select" />
-                <Button fx:id="btn" mnemonicParsing="false" onAction="#handleButtonAction" text="New" />
-                  <Button mnemonicParsing="false" text="Edit" />
+                  <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleAddtoCartAction" text="Add to Cart" />
+                <Button fx:id="btn" mnemonicParsing="false" onAction="#handleNewMediaAction" text="New" />
+                  <Button mnemonicParsing="false" onAction="#handleEditMediaAction" text="Edit" />
                   <Button mnemonicParsing="false" onAction="#handleRemoveAction" text="Delete" />
               </buttons>
             </ButtonBar>
@@ -238,7 +272,7 @@
       <Pane prefHeight="703.0" prefWidth="54.0" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" />
-            <Label layoutX="-67.0" layoutY="158.0" rotate="-90.0" text="USERS MANAGER">
+            <Label layoutX="-75.0" layoutY="158.0" rotate="-90.0" text="MEDIAS MANAGER">
                <font>
                   <Font size="24.0" />
                </font>

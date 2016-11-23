@@ -22,7 +22,7 @@ public class Video extends Media{
     // CONSTRUCTOR
     //**************************************************************************
     public Video(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, int duration, String legalDisclamer, double cost){
-        super(title, author, year, loanable, available, nbDispo);
+        super(title, author, year, loanable, available, nbDispo, "VIDEO");
         this.legalDisclamer = legalDisclamer;
         this.DURATION = duration;
         this.COST = cost;
@@ -31,6 +31,10 @@ public class Video extends Media{
     //**************************************************************************
     // METHODS
     //**************************************************************************
+    @Override
+    public String toString(){
+        return "Disclamer : "+legalDisclamer;
+    }
 
     //**************************************************************************
     // SETTERS / GETTERS

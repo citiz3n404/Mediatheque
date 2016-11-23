@@ -26,8 +26,5 @@ public abstract class ControlledScreen {
     
     public abstract void updateAfterLoadingScreen();
     
-    @FXML
-    protected void goToScreenUserManager(ActionEvent event){
-       sm.setScreen(App.screenUserManagerID);
-    }
+    public abstract void updateDatas();
 }

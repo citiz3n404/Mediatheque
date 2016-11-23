@@ -20,6 +20,7 @@ import javafx.scene.layout.StackPane;
 public class ScreensManager extends StackPane{
     
     private HashMap<String, Node> screens = new HashMap<>();
+    private HashMap<String, ControlledScreen> controllers = new HashMap<>();
     
     //**************************************************************************
     // CONSTRUCTOR
@@ -35,12 +36,20 @@ public class ScreensManager extends StackPane{
     public void addScreen(String name, Node screen) {
         screens.put(name, screen);
     }
+    
+    public void addController(String name, ControlledScreen screen) {
+        controllers.put(name, screen);
+    }
 
     //Returns the Node with the appropriate name
     public Node getScreen(String name) {
         return screens.get(name);
     }
 
+    public ControlledScreen getController(String name){
+        return controllers.get(name);
+    }
+    
     //Loads the fxml file, add the screen to the screens collection and
     //finally injects the screenPane to the controller.
     public boolean loadScreen(String name, String resource, Object datas) {
@@ -52,6 +61,7 @@ public class ScreensManager extends StackPane{
             myScreenControler.setDatas(datas);
             addScreen(name, loadScreen);
             myScreenControler.updateAfterLoadingScreen();
+            addController(name, myScreenControler);
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage()+" Le screen ne s'est pas chargé");
@@ -104,6 +114,10 @@ public class ScreensManager extends StackPane{
         } else {
             return true;
         }
+    }
+    
+    public void updateDatas(String name){
+        getController(name).updateDatas();
     }
     //**************************************************************************
     // SETTERS / GETTERS

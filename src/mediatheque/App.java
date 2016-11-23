@@ -1,5 +1,6 @@
 package mediatheque;
 
+import java.util.Date;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -17,10 +18,10 @@ public class App extends Application {
     public static String screenHomeFile = "FXMLHome.fxml";
     public static String screenUserManagerID = "UserManager";
     public static String screenUserManagerFile = "FXMLUserManager.fxml";
-    public static String screen2ID = "NewUser";
-    public static String screen2File = "FXMLNewUser.fxml";
-    public static String screen3ID = "OutStandingLoan";
-    public static String screen3File = "FXMLOutStandingLoan.fxml";
+    public static String screenMediaManagerID = "MediaManager";
+    public static String screenMediaManagerFile = "FXMLMediaManager.fxml";
+    public static String screenOutStandingLoanID = "OutStandingLoan";
+    public static String screenOutStandingLoanFile = "FXMLOutStandingLoan.fxml";
     public static String screen4ID = "NewLoan";
     public static String screen4File = "FXMLNewLoan.fxml";
     
@@ -30,21 +31,37 @@ public class App extends Application {
         ScreensManager mainContainer = new ScreensManager();
         Mediatheque m = new Mediatheque("Mediatheque");
         
-        m.clientsList.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.clientsList.add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.clientsList.add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.clientsList.add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.clientsList.add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.clientsList.add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
         
-        m.clientsList.get(2).setImg("file:img/profil2.png");
-        m.clientsList.get(4).setImg("file:img/profil2.png");
-        m.clientsList.get(5).setImg("file:img/profil.png");
+        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 15, "RAP/ROCK", 120, 10));
+        m.getMediasList().add(new Audio("Symphone 7", "Beethoven", new Date(), true, true, 2, "CLASSIC", 300, 10));
+        m.getMediasList().add(new Livre("Improbable", "Adam Fawer", new Date(), true, true, 5, 30, 300, 10));
+        m.getMediasList().add(new Video("Interstellar", "Christopher Nolan", new Date(), true, true, 3, 120, "MIT Licence", 10));
+        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 4, "RAP/ROCK", 45, 10));
+        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 8, "JAZZ", 120, 10));
+        m.getMediasList().add(new Video("V for Vendetta", "James McTeigue", new Date(), true, true, 15, 120, "MIT Licence", 10));
+        
+        
+        
+        m.getClientsList().get(2).setImg("file:img/profil2.png");
+        m.getClientsList().get(4).setImg("file:img/profil2.png");
+        m.getClientsList().get(5).setImg("file:img/profil.png");
         
         mainContainer.loadScreen(App.screenHomeID, App.screenHomeFile, m);
         mainContainer.loadScreen(App.screenUserManagerID, App.screenUserManagerFile, m);
-        mainContainer.loadScreen(App.screen2ID, App.screen2File, m);
-        mainContainer.loadScreen(App.screen3ID, App.screen3File, m);
+        mainContainer.loadScreen(App.screenMediaManagerID, App.screenMediaManagerFile, m);
+        mainContainer.loadScreen(App.screenOutStandingLoanID, App.screenOutStandingLoanFile, m);
         
         mainContainer.setScreen(App.screenHomeID);
         

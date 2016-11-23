@@ -15,6 +15,7 @@ import java.util.UUID;
  */
 public abstract class Media {
     private String ID_media;
+    private String type;
     private String title;
     private String author;
     private Date year;
@@ -25,7 +26,7 @@ public abstract class Media {
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Media(String title, String author, Date year, boolean loanable, boolean available, int nbDispo){
+    public Media(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, String type){
         this.ID_media   = UUID.randomUUID().toString();
         this.title      = title;
         this.author     = author;
@@ -33,7 +34,7 @@ public abstract class Media {
         this.loanable   = loanable;
         this.available  = available;
         this.nbDispo    = nbDispo;
-        
+        this.type       = type;
     }
 
     //**************************************************************************
@@ -126,6 +127,20 @@ public abstract class Media {
      */
     public void setNbDispo(int nbDispo) {
         this.nbDispo = nbDispo;
+    }
+
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type) {
+        this.type = type;
     }
 
 }

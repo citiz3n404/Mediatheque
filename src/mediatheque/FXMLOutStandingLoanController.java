@@ -23,5 +23,10 @@ public class FXMLOutStandingLoanController extends ControlledScreen implements I
     public void updateAfterLoadingScreen() {
         
     }
+
+    @Override
+    public void updateDatas() {
+        
+    }
     
 }

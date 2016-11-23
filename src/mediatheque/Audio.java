@@ -21,7 +21,7 @@ public class Audio extends Media{
     // CONSTRUCTOR
     //**************************************************************************
     public Audio(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, String classification, int duration, double cost){
-        super(title, author, year, loanable, available, nbDispo);
+        super(title, author, year, loanable, available, nbDispo, "AUDIO");
         this.classification = classification;
         this.DURATION = duration;
         this.COST = cost;
@@ -30,7 +30,10 @@ public class Audio extends Media{
     //**************************************************************************
     // METHODS
     //**************************************************************************
-
+    @Override
+    public String toString(){
+        return "Classification : "+classification;
+    }
     //**************************************************************************
     // SETTERS / GETTERS
     //**************************************************************************

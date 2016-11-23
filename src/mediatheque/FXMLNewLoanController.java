@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Benjamin
  */
-public class FXMLNewLoanController implements Initializable {
+public class FXMLNewLoanController extends ControlledScreen implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -23,5 +23,15 @@ public class FXMLNewLoanController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @Override
+    public void updateAfterLoadingScreen() {
+        
+    }
+
+    @Override
+    public void updateDatas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

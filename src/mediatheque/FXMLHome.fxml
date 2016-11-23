@@ -87,7 +87,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" text="VALIDER">
+                  <Button mnemonicParsing="false" onAction="#handleCartAction" text="VALIDER">
                      <HBox.margin>
                         <Insets right="10.0" top="7.0" />
                      </HBox.margin>
@@ -148,7 +148,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="201.0" prefWidth="202.0">
+                        <Button mnemonicParsing="false" onAction="#goToScreenMedias" prefHeight="201.0" prefWidth="202.0">
                            <graphic>
                               <ImageView fx:id="mediaIcon" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -193,7 +193,7 @@
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button mnemonicParsing="false" text="VOIR TOUS LES EMPRUNTS EN COURS" />
+                <Button mnemonicParsing="false" onAction="#goToScreenOutstandingLoad" text="VOIR TOUS LES EMPRUNTS EN COURS" />
               </buttons>
                <VBox.margin>
                   <Insets right="40.0" />

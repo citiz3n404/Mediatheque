@@ -66,6 +66,11 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
     private TextField tf_search;
     
     @FXML
+    private ImageView iv_home;
+    @FXML
+    private TableColumn<?, ?> nbLateCol1;
+    
+    @FXML
     private void handleButtonAction(ActionEvent event) {
         Client c =new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250));
         mediatheque.getClientsList().add(c);
@@ -101,9 +106,9 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
     
     @FXML
     private void handleSelectAction(ActionEvent event){
-        mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
-        tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
-        tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
+        mediatheque.getTempCart().setClient(tableUsers.getSelectionModel().getSelectedItem());
+        tempUserLabel.setText(mediatheque.getTempCart().getClient().getFirstName()+" "+mediatheque.getTempCart().getClient().getLastName());
+        tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
     }
     
     @Override
@@ -113,22 +118,18 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
         nbEmpruntCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDone"));
         nbLateCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDelayed"));
         profilPicture.setImage(new Image("file:img/profil2.png"));
+        iv_home.setImage(new Image("file:img/home.png"));
     }    
 
+    
     @FXML
-    private void goToScreen2(ActionEvent event){
-       sm.setScreen(App.screen2ID);
+    protected void goToScreenHome(ActionEvent event){
+       sm.setScreen(App.screenHomeID);
+       sm.getController(App.screenHomeID).updateDatas();
     }
 
     @Override
-    public void updateAfterLoadingScreen() {
-        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        
+    public void updateAfterLoadingScreen() {       
         tableUsers.setItems(mediatheque.getClientsList());
         tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             //Check whether item is selected and set value of selected item to Label
@@ -139,6 +140,12 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
                 profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
             }
         });
+    }
+
+    @Override
+    public void updateDatas() {
+        tempUserLabel.setText(mediatheque.getTempCart().getClient().getFirstName()+" "+mediatheque.getTempCart().getClient().getLastName());
+        tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
     }
     
 }
