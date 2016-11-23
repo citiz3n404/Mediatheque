@@ -33,7 +33,6 @@ public class BorrowingCard {
         this.overDated      = overDated;
         this.cost           = cost;
         this.ID_card        = UUID.randomUUID().toString();
-
     }
 
     //**************************************************************************

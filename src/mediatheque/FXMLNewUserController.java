@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Benjamin
  */
-public class FXMLNewUserController implements Initializable {
+public class FXMLNewUserController extends ControlledScreen implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -23,5 +23,10 @@ public class FXMLNewUserController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @Override
+    public void updateAfterLoadingScreen() {
+        
+    }
     
 }

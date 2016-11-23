@@ -13,9 +13,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 
 /**
  *
@@ -61,19 +63,66 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
     private Label tempMediasLabel;
     
     @FXML
+    private TextField tf_search;
+    
+    @FXML
     private void handleButtonAction(ActionEvent event) {
-        mediatheque.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        Client c =new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250));
+        mediatheque.getClientsList().add(c);
     }
     
     @FXML
-    private void handleButtonAction2(ActionEvent event) {
-    }
-    
-    @FXML
-    private void handleLineSelectAction(ActionEvent event){
+    private void handleRemoveAction(ActionEvent event) {
         Client c = tableUsers.getSelectionModel().getSelectedItem();
-        firstNameLabel.setText(c.getLastName());
-        lastNameLabel.setText(c.getFirstName());
+        mediatheque.getClientsList().remove(c);
+    }
+    
+    @FXML
+    private void handleResearchAction(KeyEvent event){
+        String str = tf_search.getText();
+        ObservableList<Client> tempList = FXCollections.observableArrayList();
+        
+        
+        //Load if function of str
+        if(!str.isEmpty()){
+            tableUsers.setItems(mediatheque.getClientsList());
+            for(int i=0; i<tableUsers.getItems().size(); i++){
+                if(tableUsers.getItems().get(i).getFirstName().startsWith(str) || tableUsers.getItems().get(i).getLastName().startsWith(str) ||
+                        tableUsers.getItems().get(i).getFirstName().toLowerCase().startsWith(str) || tableUsers.getItems().get(i).getLastName().toLowerCase().startsWith(str)){
+                    tempList.add(tableUsers.getItems().get(i));
+                }
+            }
+
+            tableUsers.setItems(tempList);
+            tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+                //Check whether item is selected and set value of selected item to Label
+                if (tableUsers.getSelectionModel().getSelectedItem() != null) {
+                    firstNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getFirstName());
+                    lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
+                    adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
+                    profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
+                    mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
+                    tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
+                    tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
+                }
+            });
+        } else{
+            tableUsers.setItems(mediatheque.getClientsList());
+            tableUsers.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+                //Check whether item is selected and set value of selected item to Label
+                if (tableUsers.getSelectionModel().getSelectedItem() != null) {
+                    firstNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getFirstName());
+                    lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
+                    adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
+                    profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
+                    mediatheque.tempCart.setClient(tableUsers.getSelectionModel().getSelectedItem());
+                    tempUserLabel.setText(mediatheque.tempCart.getClient().getFirstName()+" "+mediatheque.tempCart.getClient().getLastName());
+                    tempMediasLabel.setText(mediatheque.tempCart.getMedias().size()+"");
+                }
+            });
+        }
+        
+        //System.out.println(str);
     }
     
     @Override
@@ -84,9 +133,7 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
         nbLateCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDelayed"));
         profilPicture.setImage(new Image("file:img/profil2.png"));
     }    
-    
- 
-    
+
     @FXML
     private void goToScreen2(ActionEvent event){
        sm.setScreen(App.screen2ID);
