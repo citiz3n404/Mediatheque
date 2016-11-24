@@ -32,6 +32,10 @@ public class Livre extends Media{
     //**************************************************************************
 
     @Override
+    public double getCost() {
+        return COST;
+    }
+    @Override
     public String toString(){
         return "Pages : "+nbPage;
     }

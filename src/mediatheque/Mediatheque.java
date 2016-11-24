@@ -19,14 +19,14 @@ public class Mediatheque {
     
     private ObservableList<Client> clientsList = FXCollections.observableArrayList();
     private ObservableList<Media> mediasList = FXCollections.observableArrayList();
-    private TempCart tempCart;
+    private ObservableList<BorrowingCard> loansList = FXCollections.observableArrayList();
+    private TempCart tempCart = new TempCart();
     
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
     public Mediatheque(String name){
         this.name = name;
-        this.tempCart = new TempCart();
         
     }
 
@@ -100,6 +100,20 @@ public class Mediatheque {
      */
     public void setTempCart(TempCart tempCart) {
         this.tempCart = tempCart;
+    }
+
+    /**
+     * @return the loansList
+     */
+    public ObservableList<BorrowingCard> getLoansList() {
+        return loansList;
+    }
+
+    /**
+     * @param loansList the loansList to set
+     */
+    public void setLoansList(ObservableList<BorrowingCard> loansList) {
+        this.loansList = loansList;
     }
 
 }

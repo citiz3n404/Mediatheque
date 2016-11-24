@@ -66,7 +66,7 @@
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="tempUserLabel" text="Bernard" textFill="WHITE">
+                  <Label fx:id="tempUserLabel" text="NC" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="20.0" top="10.0" />
                      </HBox.margin>
@@ -79,7 +79,7 @@
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="tempMediasLabel" text="6" textFill="WHITE">
+                  <Label fx:id="tempMediasLabel" text="0" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="20.0" top="10.0" />
                      </HBox.margin>
@@ -182,14 +182,20 @@
                   <Insets left="30.0" right="40.0" />
                </VBox.margin>
             </Separator>
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tableLoan" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
               <columns>
-                <TableColumn prefWidth="133.0" text="C1" />
-                <TableColumn prefWidth="176.0" text="C2" />
+                <TableColumn fx:id="clientCol" prefWidth="138.0" text="CLIENT" />
+                  <TableColumn fx:id="mediaCol" prefWidth="220.0" text="MEDIA" />
+                  <TableColumn fx:id="reminderCol" prefWidth="150.0" text="REMINDER DATE" />
+                  <TableColumn fx:id="overdatedCol" prefWidth="147.0" text="OVERDATED" />
+                  <TableColumn fx:id="limitCol" prefWidth="147.0" text="LIMIT DATE" />
               </columns>
                <VBox.margin>
                   <Insets left="30.0" right="40.0" top="10.0" />
                </VBox.margin>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
@@ -205,20 +211,11 @@
    <left>
       <Pane prefHeight="703.0" prefWidth="54.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="-5.0" layoutY="158.0" rotate="-90.0" text="HOME">
+            <Label layoutX="-5.0" layoutY="48.0" rotate="-90.0" text="HOME">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button layoutX="2.0" layoutY="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0">
-               <graphic>
-                  <ImageView disable="true" fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/home.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
          </children>
       </Pane>
    </left>

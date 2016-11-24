@@ -1,13 +1,19 @@
 package mediatheque;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -18,6 +24,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  *
@@ -70,9 +78,33 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
     @FXML
     private TableColumn<?, ?> nbLateCol1;
     
+    
+    @FXML
+    private void handleCartAction(ActionEvent event){
+        try {
+            Stage stage;
+            stage = new Stage();
+            //stage.setScene(new Scene(root));
+            stage.setTitle("My modal window");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewLoan.fxml"));
+            Parent loadScreen = (Parent) myLoader.load();
+            ControlledScreen myScreenControler = ((ControlledScreen) myLoader.getController()); 
+            myScreenControler.setDatas(mediatheque);
+            myScreenControler.setScreenParent(sm);
+            myScreenControler.updateAfterLoadingScreen();
+            
+            stage.setScene(new Scene(loadScreen));
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLHomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        Client c =new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250));
+        Client c =new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png");
         mediatheque.getClientsList().add(c);
     }
     
@@ -146,6 +178,29 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
     public void updateDatas() {
         tempUserLabel.setText(mediatheque.getTempCart().getClient().getFirstName()+" "+mediatheque.getTempCart().getClient().getLastName());
         tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
+    }
+    
+    @FXML
+    private void handleNewUserAction(ActionEvent event){
+        try {
+            Stage stage;
+            stage = new Stage();
+            //stage.setScene(new Scene(root));
+            stage.setTitle("My modal window");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            
+            FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewUser.fxml"));
+            Parent loadScreen = (Parent) myLoader.load();
+            ControlledScreen myScreenControler = ((ControlledScreen) myLoader.getController()); 
+            myScreenControler.setDatas(mediatheque);
+            myScreenControler.setScreenParent(sm);
+            myScreenControler.updateAfterLoadingScreen();
+            
+            stage.setScene(new Scene(loadScreen));
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLHomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

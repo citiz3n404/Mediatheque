@@ -84,4 +84,9 @@ public class Video extends Media{
         COST = aCOST;
     }
 
+    @Override
+    public double getCost() {
+        return COST;
+    }
+
 }

@@ -87,7 +87,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" text="VALIDER">
+                  <Button mnemonicParsing="false" onAction="#handleCartAction" text="VALIDER">
                      <HBox.margin>
                         <Insets right="10.0" top="7.0" />
                      </HBox.margin>
@@ -226,7 +226,7 @@
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
                   <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleSelectAction" text="Select" />
-                <Button fx:id="btn" mnemonicParsing="false" onAction="#handleButtonAction" text="New" />
+                <Button fx:id="btn" mnemonicParsing="false" onAction="#handleNewUserAction" text="New" />
                   <Button mnemonicParsing="false" text="Edit" />
                   <Button mnemonicParsing="false" onAction="#handleRemoveAction" text="Delete" />
               </buttons>

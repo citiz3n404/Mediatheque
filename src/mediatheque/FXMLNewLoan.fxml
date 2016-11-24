@@ -64,7 +64,7 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <Label text="(User)">
+                  <Label fx:id="userLabel" prefHeight="25.0" prefWidth="336.0" text="(User)">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -73,7 +73,7 @@
                      </HBox.margin>
                   </Label>
                   <Region prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <DatePicker>
+                  <DatePicker fx:id="datepicker" prefHeight="25.0" prefWidth="257.0">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
@@ -83,15 +83,15 @@
                   <Insets left="5.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <TableView prefHeight="399.0" prefWidth="622.0" tableMenuButtonVisible="true">
+            <TableView fx:id="tableCart" prefHeight="399.0" prefWidth="622.0" tableMenuButtonVisible="true">
               <columns>
-                  <TableColumn prefWidth="75.0" text="TYPE" />
-                  <TableColumn prefWidth="75.0" text="TITRE" />
-                  <TableColumn prefWidth="75.0" text="AUTHOR" />
-                  <TableColumn prefWidth="75.0" text="YEAR" />
-                  <TableColumn prefWidth="74.0" text="LOANABLE" />
-                  <TableColumn prefWidth="78.0" text="AVAILABLE" />
-                  <TableColumn prefWidth="128.0" text="NB AVAILABLE" />
+                  <TableColumn fx:id="typeCol" prefWidth="75.0" text="TYPE" />
+                  <TableColumn fx:id="titleCol" prefWidth="75.0" text="TITRE" />
+                  <TableColumn fx:id="authorCol" prefWidth="75.0" text="AUTHOR" />
+                  <TableColumn fx:id="yearCol" prefWidth="75.0" text="YEAR" />
+                  <TableColumn fx:id="loanableCol" prefWidth="74.0" text="LOANABLE" />
+                  <TableColumn fx:id="availableCol" prefWidth="78.0" text="AVAILABLE" />
+                  <TableColumn fx:id="nbdispoCol" prefWidth="128.0" text="NB AVAILABLE" />
               </columns>
                <opaqueInsets>
                   <Insets left="25.0" />
@@ -105,12 +105,18 @@
             </TableView>
             <HBox alignment="CENTER_RIGHT">
                <children>
+                  <Label fx:id="messageLabel" prefHeight="17.0" prefWidth="318.0" text="Message" textFill="#ff3900">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
                   <Label text="TOTAL :">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="20,2">
+                  <Label fx:id="pricelLabel" text="20,2">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -133,9 +139,9 @@
             </HBox>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button mnemonicParsing="false" text="VALIDER" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" text="DELETE" />
-                  <Button mnemonicParsing="false" text="CANCEL" />
+                <Button mnemonicParsing="false" onAction="#handleValidateAction" text="VALIDER" />
+                  <Button mnemonicParsing="false" onAction="#handleDeleteAction" prefHeight="25.0" text="DELETE" />
+                  <Button mnemonicParsing="false" onAction="#handleCancelAction" text="CANCEL" />
               </buttons>
                <VBox.margin>
                   <Insets bottom="15.0" top="10.0" />

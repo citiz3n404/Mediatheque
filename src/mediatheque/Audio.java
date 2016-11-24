@@ -34,6 +34,11 @@ public class Audio extends Media{
     public String toString(){
         return "Classification : "+classification;
     }
+    
+    @Override
+    public double getCost() {
+        return COST;
+    }
     //**************************************************************************
     // SETTERS / GETTERS
     //**************************************************************************

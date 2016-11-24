@@ -1,7 +1,8 @@
 package mediatheque;
 
 
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import mediatheque.Client;
 import mediatheque.Media;
 
@@ -17,15 +18,13 @@ import mediatheque.Media;
  * @author  Anthony CHAFFOT
  */
 public class TempCart {
-    private Client client;
-    private ArrayList<Media> medias;
+    private Client client = new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png");;
+    private ObservableList<Media> medias = FXCollections.observableArrayList();
 
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
     public TempCart(){
-        client = new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250));
-        medias = new ArrayList<>();
     }
 
     //**************************************************************************
@@ -53,14 +52,14 @@ public class TempCart {
     /**
      * @return the medias
      */
-    public ArrayList<Media> getMedias() {
+    public ObservableList<Media> getMedias() {
         return medias;
     }
 
     /**
      * @param medias the medias to set
      */
-    public void setMedias(ArrayList<Media> medias) {
+    public void setMedias(ObservableList<Media> medias) {
         this.medias = medias;
     }
 

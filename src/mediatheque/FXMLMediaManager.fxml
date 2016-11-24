@@ -87,7 +87,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" text="VALIDER">
+                  <Button mnemonicParsing="false" onAction="#handleCartAction" text="VALIDER">
                      <HBox.margin>
                         <Insets right="10.0" top="7.0" />
                      </HBox.margin>
@@ -144,7 +144,7 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="l_title" text="CHAFFOT">
+                  <Label fx:id="l_title" text="Titre">
                      <padding>
                         <Insets left="10.0" top="10.0" />
                      </padding>
@@ -161,7 +161,7 @@
                         <Insets bottom="10.0" left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="l_author" text="CHAFFOT">
+                  <Label fx:id="l_author" text="Auteur">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
@@ -178,7 +178,7 @@
                         <Insets bottom="10.0" left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="l_date" text="CHAFFOT">
+                  <Label fx:id="l_date" text="date">
                      <padding>
                         <Insets left="10.0" />
                      </padding>

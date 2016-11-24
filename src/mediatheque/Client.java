@@ -32,7 +32,7 @@ public class Client {
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Client(String firstName, String lastName, Adress adress){
+    public Client(String firstName, String lastName, Adress adress, String img){
         this.ID_client          = UUID.randomUUID().toString();
         this.firstName          = firstName;
         this.lastName           = lastName;
@@ -42,10 +42,10 @@ public class Client {
         this.nbLoanDone         = 0;
         this.nbLoanDelayed      = 0;
         this.nbCurrentLoan      = 0;
-        this.img = "file:img/achille.jpg";
+        this.img                = img;
     }
     
-    public Client(String firstName, String lastName, Adress adress, Date register_date, Date renewal_date, int nbLoanDone, int nbLoandDelayed, int nbCurrentLoan){
+    public Client(String firstName, String lastName, Adress adress, Date register_date, Date renewal_date, int nbLoanDone, int nbLoandDelayed, int nbCurrentLoan, String img){
         this.ID_client          = UUID.randomUUID().toString();
         this.firstName          = firstName;
         this.lastName           = lastName;
@@ -55,11 +55,16 @@ public class Client {
         this.nbLoanDone         = nbLoanDone;
         this.nbLoanDelayed      = nbLoandDelayed;
         this.nbCurrentLoan      = nbCurrentLoan;
+        this.img                = img;
     }
 
     //**************************************************************************
     // METHODS
     //**************************************************************************
+    @Override
+    public String toString(){
+        return firstName+" "+lastName;
+    }
 
     //**************************************************************************
     // SETTERS / GETTERS

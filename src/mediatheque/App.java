@@ -31,18 +31,18 @@ public class App extends Application {
         ScreensManager mainContainer = new ScreensManager();
         Mediatheque m = new Mediatheque("Mediatheque");
         
-        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
+        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
         
         m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 15, "RAP/ROCK"));
         m.getMediasList().add(new Audio("Symphone 7", "Beethoven", new Date(), true, true, 2, "CLASSIC"));

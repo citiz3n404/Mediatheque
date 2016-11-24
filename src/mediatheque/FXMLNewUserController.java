@@ -6,6 +6,7 @@
 package mediatheque;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -55,12 +56,16 @@ public class FXMLNewUserController extends ControlledScreen implements Initializ
     
     @FXML
     private void handleSaveAction(ActionEvent event){
-        if(!(tf_firstName.getText().isEmpty()) && !(tf_lastName.getText().isEmpty()) && !(tf_number.getText().isEmpty())  && !(tf_street.getText().isEmpty()) && !(tf_country.getText().isEmpty()) && !(tf_city.getText().isEmpty()) && !(tf_zipcode.getText().isEmpty())){
-            mediatheque.addCLient(new Client(tf_firstName.getText(), tf_lastName.getText(), new Adress(Integer.parseInt(tf_number.getText()), tf_street.getText(), tf_country.getText(),tf_city.getText(), Integer.parseInt(tf_zipcode.getText()))));
+        if(!(tf_firstName.getText().isEmpty()) && !(tf_lastName.getText().isEmpty()) && !(tf_number.getText().isEmpty())  && !(tf_street.getText().isEmpty()) && !(tf_country.getText().isEmpty()) && !(tf_city.getText().isEmpty()) && !(tf_zipcode.getText().isEmpty())&& !(imgPath.isEmpty())){
+                       
+            
+            mediatheque.addCLient(new Client(tf_firstName.getText(), tf_lastName.getText(), new Adress(Integer.parseInt(tf_number.getText()), tf_street.getText(), tf_country.getText(),tf_city.getText(), Integer.parseInt(tf_zipcode.getText())), "file:img/profil2.png"));
             ((Node)event.getSource()).getScene().getWindow().hide();
         }
         
     }
+    
+    
     
     @FXML
     private void handleCancelAction(ActionEvent event){
@@ -109,7 +114,7 @@ public class FXMLNewUserController extends ControlledScreen implements Initializ
 
     @Override
     public void updateDatas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }

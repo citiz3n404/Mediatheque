@@ -3,6 +3,7 @@ package mediatheque;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,6 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
@@ -35,6 +39,18 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
     
     @FXML
     private ImageView mediaIcon;
+    @FXML
+    private TableView<BorrowingCard> tableLoan;
+    @FXML
+    private TableColumn<BorrowingCard, String> clientCol;
+    @FXML
+    private TableColumn<BorrowingCard, String> mediaCol;
+    @FXML
+    private TableColumn<BorrowingCard, Date> reminderCol;
+    @FXML
+    private TableColumn<BorrowingCard, Boolean> overdatedCol;
+    @FXML
+    private TableColumn<BorrowingCard, Date> limitCol;
     
     @FXML
     protected void goToScreenUserManager(ActionEvent event){
@@ -130,13 +146,20 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
     public void initialize(URL url, ResourceBundle rb) {
         userIcon.setImage(new Image("file:img/person-flat.png"));
         mediaIcon.setImage(new Image("file:img/Cd-icon.png"));
+        
+        clientCol.setCellValueFactory(new PropertyValueFactory<>("client"));
+        mediaCol.setCellValueFactory(new PropertyValueFactory<>("media"));
+        reminderCol.setCellValueFactory(new PropertyValueFactory<>("reminderDate"));
+        limitCol.setCellValueFactory(new PropertyValueFactory<>("limitDate"));
+        overdatedCol.setCellValueFactory(new PropertyValueFactory<>("overDated"));
+        
     }    
 
     
     
     @Override
     public void updateAfterLoadingScreen() {
-        
+        tableLoan.setItems(mediatheque.getLoansList());
     }
 
     @Override
