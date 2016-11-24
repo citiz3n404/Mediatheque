@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,12 +17,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -147,8 +151,8 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
         userIcon.setImage(new Image("file:img/person-flat.png"));
         mediaIcon.setImage(new Image("file:img/Cd-icon.png"));
         
-        clientCol.setCellValueFactory(new PropertyValueFactory<>("client"));
-        mediaCol.setCellValueFactory(new PropertyValueFactory<>("media"));
+        clientCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getClient().getFirstName()+" "+cellData.getValue().getClient().getLastName()));
+        mediaCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getMedia().getTitle()));
         reminderCol.setCellValueFactory(new PropertyValueFactory<>("reminderDate"));
         limitCol.setCellValueFactory(new PropertyValueFactory<>("limitDate"));
         overdatedCol.setCellValueFactory(new PropertyValueFactory<>("overDated"));

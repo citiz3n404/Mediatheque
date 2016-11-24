@@ -26,13 +26,15 @@ public class BorrowingCard {
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public BorrowingCard(Date loanDate, Date limitDate, Date reminderDate,boolean overDated, double cost,Client client,Media media){
+    public BorrowingCard(Date loanDate, Date limitDate, Date reminderDate,boolean overDated, double cost, Client client, Media media){
         this.loanDate       = loanDate;
         this.limitDate      = limitDate;
         this.reminderDate   = reminderDate;
         this.overDated      = overDated;
         this.cost           = cost;
         this.ID_card        = UUID.randomUUID().toString();
+        this.client         = client;
+        this.media          = media;
     }
 
     //**************************************************************************
@@ -140,5 +142,7 @@ public class BorrowingCard {
     public void setMedia(Media media) {
         this.media = media;
     }
+
+   
 
 }
