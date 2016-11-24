@@ -157,7 +157,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="AJOUTER UN MEDIA">
+                        <Button mnemonicParsing="false" onAction="#handleNewMediaAction" prefHeight="25.0" prefWidth="202.0" text="AJOUTER UN MEDIA">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>

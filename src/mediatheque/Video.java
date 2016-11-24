@@ -21,11 +21,11 @@ public class Video extends Media{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Video(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, int duration, String legalDisclamer, double cost){
+    public Video(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, String legalDisclamer){
         super(title, author, year, loanable, available, nbDispo, "VIDEO");
         this.legalDisclamer = legalDisclamer;
-        this.DURATION = duration;
-        this.COST = cost;
+        this.DURATION = 20;
+        this.COST = 8;
     }
 
     //**************************************************************************

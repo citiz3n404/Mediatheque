@@ -57,24 +57,24 @@
    <center>
       <VBox prefHeight="461.0" prefWidth="508.0" BorderPane.alignment="CENTER">
          <children>
-            <ChoiceBox prefHeight="25.0" prefWidth="401.0">
+            <ChoiceBox fx:id="cb_type" prefHeight="25.0" prefWidth="401.0">
                <VBox.margin>
                   <Insets left="10.0" top="20.0" />
                </VBox.margin>
             </ChoiceBox>
-            <TextField maxWidth="400.0" prefWidth="300.0" promptText="TITRE">
+            <TextField fx:id="tf_title" maxWidth="400.0" prefWidth="300.0" promptText="TITRE">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" top="20.0" />
                </VBox.margin>
             </TextField>
-            <TextField maxWidth="400.0" prefWidth="300.0" promptText="AUTEUR">
+            <TextField fx:id="tf_author" maxWidth="400.0" prefWidth="300.0" promptText="AUTEUR">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" top="20.0" />
                </VBox.margin>
             </TextField>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextArea prefHeight="37.0" prefWidth="400.0" promptText="DISCLAMER">
+                  <TextArea fx:id="tf_disclamer" prefHeight="37.0" prefWidth="400.0" promptText="DISCLAMER">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
@@ -83,12 +83,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="198.0" promptText="CLASSIFICATION">
+                  <TextField fx:id="tf_classification" prefHeight="25.0" prefWidth="198.0" promptText="CLASSIFICATION">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField layoutX="210.0" layoutY="10.0" prefHeight="25.0" prefWidth="192.0" promptText="NB PAGES">
+                  <TextField fx:id="tf_nbpage" layoutX="210.0" layoutY="10.0" prefHeight="25.0" prefWidth="192.0" promptText="NB PAGES">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
@@ -97,12 +97,12 @@
             </HBox>
             <HBox prefHeight="74.0" prefWidth="446.0">
                <children>
-                  <TextField maxWidth="400.0" prefHeight="25.0" prefWidth="151.0" promptText="NOMBRE DISPONIBLE">
+                  <TextField fx:id="tf_nbdispo" maxWidth="400.0" prefHeight="25.0" prefWidth="151.0" promptText="NOMBRE DISPONIBLE">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <DatePicker prefHeight="25.0" prefWidth="239.0">
+                  <DatePicker fx:id="dp_date" prefHeight="25.0" prefWidth="239.0">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -111,8 +111,8 @@
             </HBox>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button mnemonicParsing="false" text="SUITE" />
-                  <Button mnemonicParsing="false" text="CANCEL" />
+                <Button mnemonicParsing="false" onAction="#handleValidateAction" text="VALIDER" />
+                  <Button mnemonicParsing="false" onAction="#handleCancelAction" text="CANCEL" />
               </buttons>
                <VBox.margin>
                   <Insets bottom="10.0" right="30.0" top="5.0" />

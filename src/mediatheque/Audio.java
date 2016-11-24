@@ -20,11 +20,11 @@ public class Audio extends Media{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Audio(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, String classification, int duration, double cost){
+    public Audio(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, String classification){
         super(title, author, year, loanable, available, nbDispo, "AUDIO");
         this.classification = classification;
-        this.DURATION = duration;
-        this.COST = cost;
+        this.DURATION = 20;
+        this.COST = 10;
     }
 
     //**************************************************************************

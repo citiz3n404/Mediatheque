@@ -20,10 +20,10 @@ public class Livre extends Media{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Livre(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, int duration, int pages, double cost){
+    public Livre(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, int pages){
         super(title, author, year, loanable, available, nbDispo, "BOOK");
-        this.DURATION = duration;
-        this.COST = cost;
+        this.DURATION = 15;
+        this.COST = 3;
         this.nbPage = pages;
     }
 

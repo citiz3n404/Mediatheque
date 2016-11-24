@@ -44,13 +44,13 @@ public class App extends Application {
         m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
         m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250)));
         
-        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 15, "RAP/ROCK", 120, 10));
-        m.getMediasList().add(new Audio("Symphone 7", "Beethoven", new Date(), true, true, 2, "CLASSIC", 300, 10));
-        m.getMediasList().add(new Livre("Improbable", "Adam Fawer", new Date(), true, true, 5, 30, 300, 10));
-        m.getMediasList().add(new Video("Interstellar", "Christopher Nolan", new Date(), true, true, 3, 120, "MIT Licence", 10));
-        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 4, "RAP/ROCK", 45, 10));
-        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 8, "JAZZ", 120, 10));
-        m.getMediasList().add(new Video("V for Vendetta", "James McTeigue", new Date(), true, true, 15, 120, "MIT Licence", 10));
+        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 15, "RAP/ROCK"));
+        m.getMediasList().add(new Audio("Symphone 7", "Beethoven", new Date(), true, true, 2, "CLASSIC"));
+        m.getMediasList().add(new Livre("Improbable", "Adam Fawer", new Date(), true, true, 5, 30));
+        m.getMediasList().add(new Video("Interstellar", "Christopher Nolan", new Date(), true, true, 3, "MIT Licence"));
+        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 4, "RAP/ROCK"));
+        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 8, "JAZZ"));
+        m.getMediasList().add(new Video("V for Vendetta", "James McTeigue", new Date(), true, true, 15, "MIT Licence"));
         
         
         
