@@ -114,6 +114,7 @@ public class FXMLNewLoanController extends ControlledScreen implements Initializ
             for(Media m: mediatheque.getTempCart().getMedias()){
                 mediatheque.getLoansList().add(new BorrowingCard(new Date(), new Date(), new Date(), false, sum, mediatheque.getTempCart().getClient(), m));
                 mediatheque.getTempCart().getClient().setNbCurrentLoan(mediatheque.getTempCart().getClient().getNbCurrentLoan()+1);
+                sm.getController(App.screenUserManagerID).updateDatas();
                 
             }
             mediatheque.getTempCart().getMedias().clear();

@@ -147,7 +147,7 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
     public void initialize(URL url, ResourceBundle rb) {
         fisrtnameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastnameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        nbEmpruntCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDone"));
+        nbEmpruntCol.setCellValueFactory(new PropertyValueFactory<>("nbCurrentLoan"));
         nbLateCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDelayed"));
         profilPicture.setImage(new Image("file:img/profil2.png"));
         iv_home.setImage(new Image("file:img/home.png"));
@@ -178,6 +178,8 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
     public void updateDatas() {
         tempUserLabel.setText(mediatheque.getTempCart().getClient().getFirstName()+" "+mediatheque.getTempCart().getClient().getLastName());
         tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
+        tableUsers.getColumns().get(0).setVisible(false);
+        tableUsers.getColumns().get(0).setVisible(true);
     }
     
     @FXML
