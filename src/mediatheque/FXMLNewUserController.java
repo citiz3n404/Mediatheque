@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -50,16 +51,18 @@ public class FXMLNewUserController extends ControlledScreen implements Initializ
     private TextField tf_number;
     
     @FXML
-    private ChoiceBox cb_type;
-    
-    private String imgPath;
+    private ChoiceBox<String> cb_sex;
     
     @FXML
     private void handleSaveAction(ActionEvent event){
-        if(!(tf_firstName.getText().isEmpty()) && !(tf_lastName.getText().isEmpty()) && !(tf_number.getText().isEmpty())  && !(tf_street.getText().isEmpty()) && !(tf_country.getText().isEmpty()) && !(tf_city.getText().isEmpty()) && !(tf_zipcode.getText().isEmpty())&& !(imgPath.isEmpty())){
+        if(!(tf_firstName.getText().isEmpty()) && !(tf_lastName.getText().isEmpty()) && !(tf_number.getText().isEmpty())  && !(tf_street.getText().isEmpty()) && !(tf_country.getText().isEmpty()) && !(tf_city.getText().isEmpty()) && !(tf_zipcode.getText().isEmpty())&& !(cb_sex.getSelectionModel().getSelectedItem().isEmpty())){
                        
+            if(cb_sex.getSelectionModel().getSelectedItem().equals("Femme")){
+                mediatheque.addCLient(new Client(tf_firstName.getText(), tf_lastName.getText(), new Adress(Integer.parseInt(tf_number.getText()), tf_street.getText(), tf_country.getText(),tf_city.getText(), Integer.parseInt(tf_zipcode.getText())), "file:img/girl.png"));
+            }else{
+                mediatheque.addCLient(new Client(tf_firstName.getText(), tf_lastName.getText(), new Adress(Integer.parseInt(tf_number.getText()), tf_street.getText(), tf_country.getText(),tf_city.getText(), Integer.parseInt(tf_zipcode.getText())), "file:img/profil2.png"));
+            }
             
-            mediatheque.addCLient(new Client(tf_firstName.getText(), tf_lastName.getText(), new Adress(Integer.parseInt(tf_number.getText()), tf_street.getText(), tf_country.getText(),tf_city.getText(), Integer.parseInt(tf_zipcode.getText())), "file:img/profil2.png"));
             ((Node)event.getSource()).getScene().getWindow().hide();
         }
         
@@ -71,19 +74,7 @@ public class FXMLNewUserController extends ControlledScreen implements Initializ
     private void handleCancelAction(ActionEvent event){
         ((Node)event.getSource()).getScene().getWindow().hide();
     }
-    
-    @FXML
-    private void handleLoadImgAction(ActionEvent event){
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select a file");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Img", "*.jpg", "*.png"));
-        File selectedFile = fileChooser.showOpenDialog(null);
-        if (selectedFile != null) {
-            imgPath = selectedFile.getPath();
-            System.out.println(selectedFile.getName());
-        }
-    }
+
 
     /**
      * Initializes the controller class.
@@ -105,11 +96,12 @@ public class FXMLNewUserController extends ControlledScreen implements Initializ
                 }
             }
         });
+        
     }    
 
     @Override
     public void updateAfterLoadingScreen() {
-        
+        cb_sex.setItems(FXCollections.observableArrayList("Femme", "Homme"));
     }
 
     @Override

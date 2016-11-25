@@ -164,7 +164,7 @@ public class FXMLOutStandingLoanController extends ControlledScreen implements I
             if (tableLoan.getSelectionModel().getSelectedItem() != null) {
                 firstNameLabel.setText(tableLoan.getSelectionModel().getSelectedItem().getClient().getFirstName());
                 lastNameLabel.setText(tableLoan.getSelectionModel().getSelectedItem().getClient().getLastName());
-                profilPicture.setImage(new Image(tableLoan.getSelectionModel().getSelectedItem().getClient().getImg()));
+                profilPicture.setImage(new Image("file:img/"+tableLoan.getSelectionModel().getSelectedItem().getMedia().getType().toLowerCase()+".png"));
                 
                 ObservableList<BorrowingCard> tempList = FXCollections.observableArrayList();
                 for(BorrowingCard bc : mediatheque.getLoansList()){

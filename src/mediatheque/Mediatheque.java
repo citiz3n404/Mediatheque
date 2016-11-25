@@ -21,6 +21,7 @@ public class Mediatheque {
     private ObservableList<Media> mediasList = FXCollections.observableArrayList();
     private ObservableList<BorrowingCard> loansList = FXCollections.observableArrayList();
     private TempCart tempCart = new TempCart();
+    private TempEdit tempEdit = new TempEdit();
     
     //**************************************************************************
     // CONSTRUCTOR
@@ -114,6 +115,20 @@ public class Mediatheque {
      */
     public void setLoansList(ObservableList<BorrowingCard> loansList) {
         this.loansList = loansList;
+    }
+
+    /**
+     * @return the tempEdit
+     */
+    public TempEdit getTempEdit() {
+        return tempEdit;
+    }
+
+    /**
+     * @param tempEdit the tempEdit to set
+     */
+    public void setTempEdit(TempEdit tempEdit) {
+        this.tempEdit = tempEdit;
     }
 
 }

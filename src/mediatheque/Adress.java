@@ -22,6 +22,14 @@ public class Adress {
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
+    public Adress(){
+        this.number     = 0;
+        this.street     = "street";
+        this.country    = "country";
+        this.city       = "city";
+        this.zipcode    = 0;
+    }
+    
     public Adress(int number, String street, String country, String city,int zipcode){
         this.number     = number;
         this.street     = street;

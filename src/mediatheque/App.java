@@ -32,18 +32,18 @@ public class App extends Application {
         ScreensManager mainContainer = new ScreensManager();
         Mediatheque m = new Mediatheque("Mediatheque");
         
-        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png"));
+        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/girl.png"));
+        m.getClientsList().add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
         
         m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 15, "RAP/ROCK"));
         m.getMediasList().add(new Audio("Symphone 7", "Beethoven", new Date(), true, true, 2, "CLASSIC"));
@@ -52,12 +52,7 @@ public class App extends Application {
         m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 4, "RAP/ROCK"));
         m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 8, "JAZZ"));
         m.getMediasList().add(new Video("V for Vendetta", "James McTeigue", new Date(), true, true, 15, "MIT Licence"));
-        
-        
-        
-        m.getClientsList().get(2).setImg("file:img/profil2.png");
-        m.getClientsList().get(4).setImg("file:img/profil2.png");
-        m.getClientsList().get(5).setImg("file:img/profil.png");
+       
         
         mainContainer.loadScreen(App.screenHomeID, App.screenHomeFile, m);
         mainContainer.loadScreen(App.screenUserManagerID, App.screenUserManagerFile, m);

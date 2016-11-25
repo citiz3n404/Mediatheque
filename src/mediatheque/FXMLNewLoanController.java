@@ -95,7 +95,7 @@ public class FXMLNewLoanController extends ControlledScreen implements Initializ
             if(!mediatheque.getTempCart().getMedias().get(i).isAvailable() || !mediatheque.getTempCart().getMedias().get(i).isLoanable()){
                 return false;
             }
-            if(mediatheque.getTempCart().getMedias().get(i).getNbDispo() <= 0){
+            if(mediatheque.getTempCart().getMedias().get(i).getNbDispo()-1 <= 0){
                 return false;
             }
         }
@@ -114,8 +114,9 @@ public class FXMLNewLoanController extends ControlledScreen implements Initializ
             for(Media m: mediatheque.getTempCart().getMedias()){
                 mediatheque.getLoansList().add(new BorrowingCard(new Date(), new Date(), new Date(), false, sum, mediatheque.getTempCart().getClient(), m));
                 mediatheque.getTempCart().getClient().setNbCurrentLoan(mediatheque.getTempCart().getClient().getNbCurrentLoan()+1);
+                m.setNbDispo(m.getNbDispo()-1);
                 sm.getController(App.screenUserManagerID).updateDatas();
-                
+                sm.getController(App.screenMediaManagerID).updateDatas();
             }
             mediatheque.getTempCart().getMedias().clear();
             ((Node)event.getSource()).getScene().getWindow().hide();

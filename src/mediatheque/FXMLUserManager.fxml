@@ -208,7 +208,7 @@
               <buttons>
                   <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleSelectAction" text="Select" />
                 <Button fx:id="btn" mnemonicParsing="false" onAction="#handleNewUserAction" text="New" />
-                  <Button mnemonicParsing="false" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#handleEditAction" text="Edit" />
                   <Button mnemonicParsing="false" onAction="#handleRemoveAction" text="Delete" />
               </buttons>
             </ButtonBar>

@@ -80,6 +80,8 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
     private TableColumn<BorrowingCard, String> clientCol;
     @FXML
     private TableColumn<BorrowingCard, String> renduCol;
+    @FXML
+    private Label messageLabel;
 
     /**
      * Initializes the controller class.
@@ -93,7 +95,7 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
         authorCol.setCellValueFactory(new PropertyValueFactory<>("author"));
         yearCol.setCellValueFactory(new PropertyValueFactory<>("year"));
         nbAvailableCol.setCellValueFactory(new PropertyValueFactory<>("nbDispo"));
-        profilPicture.setImage(new Image("file:img/profil2.png"));
+        profilPicture.setImage(new Image("file:img/audio.png"));
         iv_home.setImage(new Image("file:img/home.png"));
         
         renduCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getLimitDate().toString()));
@@ -131,9 +133,14 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
     @FXML
     private void handleAddtoCartAction(ActionEvent event) {
         Media m = tableMedias.getSelectionModel().getSelectedItem();
-        mediatheque.getTempCart().getMedias().add(m);
-        tempUserLabel.setText(mediatheque.getTempCart().getClient().getFirstName()+" "+mediatheque.getTempCart().getClient().getLastName());
-        tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
+        if(m.getNbDispo() == 0){
+            messageLabel.setText("Produit non disponible");
+        }else{
+            messageLabel.setText("");
+            mediatheque.getTempCart().getMedias().add(m);
+            tempUserLabel.setText(mediatheque.getTempCart().getClient().getFirstName()+" "+mediatheque.getTempCart().getClient().getLastName());
+            tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
+        }
     }
     
     @FXML
@@ -185,6 +192,28 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
 
     @FXML
     private void handleEditMediaAction(ActionEvent event) {
+        mediatheque.getTempEdit().setM(tableMedias.getSelectionModel().getSelectedItem());
+        if(mediatheque.getTempEdit().getM() != null){
+            try {
+                Stage stage;
+                stage = new Stage();
+                //stage.setScene(new Scene(root));
+                stage.setTitle("Edit Media");
+                stage.initModality(Modality.APPLICATION_MODAL);
+
+                FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLEditMedia.fxml"));
+                Parent loadScreen = (Parent) myLoader.load();
+                ControlledScreen myScreenControler = ((ControlledScreen) myLoader.getController()); 
+                myScreenControler.setDatas(mediatheque);
+                myScreenControler.setScreenParent(sm);
+                myScreenControler.updateAfterLoadingScreen();
+
+                stage.setScene(new Scene(loadScreen));
+                stage.showAndWait();
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLHomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     @FXML
@@ -204,9 +233,7 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
                 l_type.setText(tableMedias.getSelectionModel().getSelectedItem().getType());
                 l_date.setText(tableMedias.getSelectionModel().getSelectedItem().getYear().toString());
                 ta_infos.setText(tableMedias.getSelectionModel().getSelectedItem().toString());
-                //profilPicture.setImage(new Image(tableMedias.getSelectionModel().getSelectedItem().getImg()));
-                
-                
+                profilPicture.setImage(new Image("file:img/"+tableMedias.getSelectionModel().getSelectedItem().getType().toLowerCase()+".png"));
                 ObservableList<BorrowingCard> tempList = FXCollections.observableArrayList();
                 for(BorrowingCard bc : mediatheque.getLoansList()){
                     if(bc.getMedia() == tableMedias.getSelectionModel().getSelectedItem()){
@@ -220,7 +247,8 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
 
     @Override
     public void updateDatas() {
-        
+        tableMedias.getColumns().get(0).setVisible(false);
+        tableMedias.getColumns().get(0).setVisible(true);
         tempUserLabel.setText(mediatheque.getTempCart().getClient().getFirstName()+" "+mediatheque.getTempCart().getClient().getLastName());
         tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
     }

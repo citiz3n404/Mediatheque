@@ -32,6 +32,19 @@ public class Client {
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
+    public Client(){
+        this.ID_client          = UUID.randomUUID().toString();
+        this.firstName          = "NC";
+        this.lastName           = "NC";
+        this.adress             = new Adress();
+        this.register_date      = new Date();
+        this.renewal_date       = new Date();
+        this.nbLoanDone         = 0;
+        this.nbLoanDelayed      = 0;
+        this.nbCurrentLoan      = 0;
+        this.img                = "file:img/profil.png";
+    }
+    
     public Client(String firstName, String lastName, Adress adress, String img){
         this.ID_client          = UUID.randomUUID().toString();
         this.firstName          = firstName;

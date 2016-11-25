@@ -222,5 +222,33 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
             Logger.getLogger(FXMLHomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void handleEditAction(ActionEvent event) {
+        mediatheque.getTempEdit().setC(tableUsers.getSelectionModel().getSelectedItem());
+        if(mediatheque.getTempEdit().getC() != null){
+            try {
+                Stage stage;
+                stage = new Stage();
+                //stage.setScene(new Scene(root));
+                stage.setTitle("Edit User");
+                stage.initModality(Modality.APPLICATION_MODAL);
+
+                FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLEditUser.fxml"));
+                Parent loadScreen = (Parent) myLoader.load();
+                ControlledScreen myScreenControler = ((ControlledScreen) myLoader.getController()); 
+                myScreenControler.setDatas(mediatheque);
+                myScreenControler.setScreenParent(sm);
+                myScreenControler.updateAfterLoadingScreen();
+
+                stage.setScene(new Scene(loadScreen));
+                stage.showAndWait();
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLHomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+    }
     
 }

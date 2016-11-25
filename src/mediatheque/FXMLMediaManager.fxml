@@ -246,6 +246,7 @@
                   <Button mnemonicParsing="false" onAction="#handleRemoveAction" text="Delete" />
               </buttons>
             </ButtonBar>
+            <Label fx:id="messageLabel" prefHeight="17.0" prefWidth="677.0" textFill="#ff4400" />
          </children>
       </VBox>
    </center>
