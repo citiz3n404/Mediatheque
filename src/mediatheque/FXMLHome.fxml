@@ -31,25 +31,6 @@
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <MenuBar>
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
             <HBox prefHeight="40.0" style="-fx-background-color: #444444;">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true">
@@ -138,9 +119,17 @@
                         </Button>
                      </children>
                      <HBox.margin>
-                        <Insets right="50.0" />
+                        <Insets />
                      </HBox.margin>
                   </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0">
+                     <padding>
+                        <Insets bottom="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" right="20.0" />
+                     </HBox.margin>
+                  </Separator>
                   <VBox alignment="TOP_CENTER" prefHeight="346.0" prefWidth="251.0">
                      <children>
                         <Label text="MEDIA MANAGER">
@@ -163,6 +152,43 @@
                            </VBox.margin>
                         </Button>
                      </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0">
+                     <padding>
+                        <Insets bottom="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="20.0" right="10.0" />
+                     </HBox.margin>
+                  </Separator>
+                  <VBox alignment="TOP_CENTER" prefHeight="312.0" prefWidth="236.0">
+                     <children>
+                        <Label text="CART SUMUP">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tableCart" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="typeCol" prefWidth="87.0" text="TYPE" />
+                            <TableColumn fx:id="titleCol" prefWidth="147.0" text="TITRE" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TableView>
+                        <Button mnemonicParsing="false" onAction="#handleCartAction" prefHeight="25.0" prefWidth="236.0" text="VOIR LE PANIER">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
                <VBox.margin>

@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,6 +74,12 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
     private Label l_date;
     @FXML
     private TextArea ta_infos;
+    @FXML
+    private TableView<BorrowingCard> tableUserLoan;
+    @FXML
+    private TableColumn<BorrowingCard, String> clientCol;
+    @FXML
+    private TableColumn<BorrowingCard, String> renduCol;
 
     /**
      * Initializes the controller class.
@@ -88,6 +95,9 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
         nbAvailableCol.setCellValueFactory(new PropertyValueFactory<>("nbDispo"));
         profilPicture.setImage(new Image("file:img/profil2.png"));
         iv_home.setImage(new Image("file:img/home.png"));
+        
+        renduCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getLimitDate().toString()));
+        clientCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getClient().getFirstName()+" "+cellData.getValue().getClient().getLastName()));
     }    
 
     @FXML
@@ -195,6 +205,15 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
                 l_date.setText(tableMedias.getSelectionModel().getSelectedItem().getYear().toString());
                 ta_infos.setText(tableMedias.getSelectionModel().getSelectedItem().toString());
                 //profilPicture.setImage(new Image(tableMedias.getSelectionModel().getSelectedItem().getImg()));
+                
+                
+                ObservableList<BorrowingCard> tempList = FXCollections.observableArrayList();
+                for(BorrowingCard bc : mediatheque.getLoansList()){
+                    if(bc.getMedia() == tableMedias.getSelectionModel().getSelectedItem()){
+                        tempList.add(bc);
+                    }
+                }
+                tableUserLoan.setItems(tempList);
             }
         });
     }

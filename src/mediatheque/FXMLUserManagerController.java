@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -76,7 +77,11 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
     @FXML
     private ImageView iv_home;
     @FXML
-    private TableColumn<?, ?> nbLateCol1;
+    private TableView<BorrowingCard> tableUserLoan;
+    @FXML
+    private TableColumn<BorrowingCard, String> titleUserLoanCol;
+    @FXML
+    private TableColumn<BorrowingCard, String> renduUserLoanCol;
     
     
     @FXML
@@ -102,7 +107,6 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
         }
     }
     
-    @FXML
     private void handleButtonAction(ActionEvent event) {
         Client c =new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png");
         mediatheque.getClientsList().add(c);
@@ -151,6 +155,9 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
         nbLateCol.setCellValueFactory(new PropertyValueFactory<>("nbLoanDelayed"));
         profilPicture.setImage(new Image("file:img/profil2.png"));
         iv_home.setImage(new Image("file:img/home.png"));
+        renduUserLoanCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getLimitDate().toString()));
+        titleUserLoanCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getMedia().getTitle()));
+        
     }    
 
     
@@ -170,6 +177,15 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
                 lastNameLabel.setText(tableUsers.getSelectionModel().getSelectedItem().getLastName());
                 adressTextArea.setText(tableUsers.getSelectionModel().getSelectedItem().getAdress().toString());
                 profilPicture.setImage(new Image(tableUsers.getSelectionModel().getSelectedItem().getImg()));
+                
+                ObservableList<BorrowingCard> tempList = FXCollections.observableArrayList();
+                for(BorrowingCard bc : mediatheque.getLoansList()){
+                    if(bc.getClient() == tableUsers.getSelectionModel().getSelectedItem()){
+                        tempList.add(bc);
+                    }
+                }
+                tableUserLoan.setItems(tempList);
+                
             }
         });
     }
@@ -180,6 +196,8 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
         tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
         tableUsers.getColumns().get(0).setVisible(false);
         tableUsers.getColumns().get(0).setVisible(true);
+        tableUserLoan.getColumns().get(0).setVisible(false);
+        tableUserLoan.getColumns().get(0).setVisible(true);
     }
     
     @FXML

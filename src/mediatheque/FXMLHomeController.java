@@ -55,6 +55,12 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
     private TableColumn<BorrowingCard, Boolean> overdatedCol;
     @FXML
     private TableColumn<BorrowingCard, Date> limitCol;
+    @FXML
+    private TableView<Media> tableCart;
+    @FXML
+    private TableColumn<Media, String> typeCol;
+    @FXML
+    private TableColumn<Media, String> titleCol;
     
     @FXML
     protected void goToScreenUserManager(ActionEvent event){
@@ -156,7 +162,8 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
         reminderCol.setCellValueFactory(new PropertyValueFactory<>("reminderDate"));
         limitCol.setCellValueFactory(new PropertyValueFactory<>("limitDate"));
         overdatedCol.setCellValueFactory(new PropertyValueFactory<>("overDated"));
-        
+        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+        titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
     }    
 
     
@@ -164,6 +171,7 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
     @Override
     public void updateAfterLoadingScreen() {
         tableLoan.setItems(mediatheque.getLoansList());
+        tableCart.setItems(mediatheque.getTempCart().getMedias());
     }
 
     @Override

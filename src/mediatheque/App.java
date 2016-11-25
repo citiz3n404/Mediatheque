@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -68,6 +69,8 @@ public class App extends Application {
         Group root = new Group();
         root.getChildren().addAll(mainContainer);
         Scene scene = new Scene(root);
+        stage.setTitle("Mediathèque");
+        stage.getIcons().add(new Image("file:img/icon.png"));
         stage.setScene(scene);
         stage.show();
     }
