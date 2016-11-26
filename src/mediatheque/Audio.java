@@ -3,6 +3,7 @@
  */
 package mediatheque;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -12,7 +13,7 @@ import java.util.Date;
  * @author  Benjamin KRAFFT
  * @author  Anthony CHAFFOT
  */
-public class Audio extends Media{
+public class Audio extends Media  implements Serializable{
     private String classification;
     private static int DURATION;
     private static double COST;

@@ -1,5 +1,7 @@
 package mediatheque;
 
+import java.io.Serializable;
+
 /* 
  * Creation : 2 nov. 2016
  */
@@ -12,7 +14,7 @@ package mediatheque;
  * @author  Benjamin KRAFFT
  * @author  Anthony CHAFFOT
  */
-public class Adress {
+public class Adress implements Serializable{
     private int         number;
     private String      street;
     private String      country;

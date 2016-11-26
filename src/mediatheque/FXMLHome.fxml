@@ -213,7 +213,7 @@
                 <TableColumn fx:id="clientCol" prefWidth="138.0" text="CLIENT" />
                   <TableColumn fx:id="mediaCol" prefWidth="220.0" text="MEDIA" />
                   <TableColumn fx:id="reminderCol" prefWidth="150.0" text="REMINDER DATE" />
-                  <TableColumn fx:id="overdatedCol" prefWidth="147.0" text="OVERDATED" />
+                  <TableColumn fx:id="overdatedCol" prefWidth="147.0" text="RENDU" />
                   <TableColumn fx:id="limitCol" prefWidth="147.0" text="LIMIT DATE" />
               </columns>
                <VBox.margin>

@@ -3,6 +3,7 @@
  */
 package mediatheque;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -12,7 +13,7 @@ import java.util.Date;
  * @author  Benjamin KRAFFT
  * @author  Anthony CHAFFOT
  */
-public class Video extends Media{
+public class Video extends Media implements Serializable{
     private String legalDisclamer;
     private static int DURATION;
     private static double COST;

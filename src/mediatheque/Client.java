@@ -3,6 +3,7 @@
  */
 package mediatheque;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 import javafx.collections.FXCollections;
@@ -15,7 +16,7 @@ import javafx.collections.ObservableList;
  * @author  Benjamin KRAFFT
  * @author  Anthony CHAFFOT
  */
-public class Client {
+public class Client implements Serializable{
     private String      ID_client;
     private String      firstName;
     private String      lastName;
@@ -26,7 +27,6 @@ public class Client {
     private int         nbLoanDelayed;
     private int         nbCurrentLoan;
     private String      img;
-    private ObservableList<Media> BorrowingList = FXCollections.observableArrayList();
     
     
     //**************************************************************************
@@ -209,18 +209,6 @@ public class Client {
         this.img = img;
     }
 
-    /**
-     * @return the BorrowingList
-     */
-    public ObservableList<Media> getBorrowingList() {
-        return BorrowingList;
-    }
 
-    /**
-     * @param BorrowingList the BorrowingList to set
-     */
-    public void setBorrowingList(ObservableList<Media> BorrowingList) {
-        this.BorrowingList = BorrowingList;
-    }
 
 }

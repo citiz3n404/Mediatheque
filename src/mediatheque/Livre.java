@@ -3,6 +3,7 @@
  */
 package mediatheque;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -12,7 +13,7 @@ import java.util.Date;
  * @author  Benjamin KRAFFT
  * @author  Anthony CHAFFOT
  */
-public class Livre extends Media{
+public class Livre extends Media implements Serializable{
     private int nbPage;
     private static int DURATION;
     private static double COST;

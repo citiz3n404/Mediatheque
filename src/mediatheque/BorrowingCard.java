@@ -3,6 +3,7 @@
  */
 package mediatheque;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,7 +14,7 @@ import java.util.UUID;
  * @author  Anthony CHAFFOT
  * @author  Benjamin KRAFFT
  */
-public class BorrowingCard {
+public class BorrowingCard implements Serializable{
     private Date        loanDate;
     private Date        limitDate;
     private Date        reminderDate;

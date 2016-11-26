@@ -31,8 +31,10 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         ScreensManager mainContainer = new ScreensManager();
         Mediatheque m = new Mediatheque("Mediatheque");
+        SaveManager saveManager = new SaveManager(m);
         
-        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
+        saveManager.load();
+        /*m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
         m.getClientsList().add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
         m.getClientsList().add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
         m.getClientsList().add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/girl.png"));
@@ -51,7 +53,7 @@ public class App extends Application {
         m.getMediasList().add(new Video("Interstellar", "Christopher Nolan", new Date(), true, true, 3, "MIT Licence"));
         m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 4, "RAP/ROCK"));
         m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 8, "JAZZ"));
-        m.getMediasList().add(new Video("V for Vendetta", "James McTeigue", new Date(), true, true, 15, "MIT Licence"));
+        m.getMediasList().add(new Video("V for Vendetta", "James McTeigue", new Date(), true, true, 15, "MIT Licence"));*/
        
         
         mainContainer.loadScreen(App.screenHomeID, App.screenHomeFile, m);
@@ -60,6 +62,7 @@ public class App extends Application {
         mainContainer.loadScreen(App.screenOutStandingLoanID, App.screenOutStandingLoanFile, m);
         
         mainContainer.setScreen(App.screenHomeID);
+        //saveManager.save();
         
         Group root = new Group();
         root.getChildren().addAll(mainContainer);

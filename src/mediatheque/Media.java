@@ -3,6 +3,7 @@
  */
 package mediatheque;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,7 +14,7 @@ import java.util.UUID;
  * @author  Benjamin KRAFFT
  * @author  Anthony CHAFFOT
  */
-public abstract class Media {
+public abstract class Media implements Serializable{
     private String ID_media;
     private String type;
     private String title;
