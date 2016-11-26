@@ -4,6 +4,7 @@
 package mediatheque;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -21,7 +22,7 @@ public class Audio extends Media  implements Serializable{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Audio(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, String classification){
+    public Audio(String title, String author, LocalDate year, boolean loanable, boolean available, int nbDispo, String classification){
         super(title, author, year, loanable, available, nbDispo, "AUDIO");
         this.classification = classification;
         this.DURATION = 20;

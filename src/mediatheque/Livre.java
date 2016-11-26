@@ -4,6 +4,7 @@
 package mediatheque;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -21,7 +22,7 @@ public class Livre extends Media implements Serializable{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Livre(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, int pages){
+    public Livre(String title, String author, LocalDate year, boolean loanable, boolean available, int nbDispo, int pages){
         super(title, author, year, loanable, available, nbDispo, "BOOK");
         this.DURATION = 15;
         this.COST = 3;

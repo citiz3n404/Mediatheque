@@ -4,6 +4,7 @@
 package mediatheque;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -15,9 +16,9 @@ import java.util.UUID;
  * @author  Benjamin KRAFFT
  */
 public class BorrowingCard implements Serializable{
-    private Date        loanDate;
-    private Date        limitDate;
-    private Date        reminderDate;
+    private LocalDate        loanDate;
+    private LocalDate        limitDate;
+    private LocalDate       reminderDate;
     private boolean     overDated;
     private double      cost;
     private Client      client;
@@ -27,7 +28,7 @@ public class BorrowingCard implements Serializable{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public BorrowingCard(Date loanDate, Date limitDate, Date reminderDate,boolean overDated, double cost, Client client, Media media){
+    public BorrowingCard(LocalDate loanDate, LocalDate limitDate, LocalDate  reminderDate,boolean overDated, double cost, Client client, Media media){
         this.loanDate       = loanDate;
         this.limitDate      = limitDate;
         this.reminderDate   = reminderDate;
@@ -49,42 +50,42 @@ public class BorrowingCard implements Serializable{
     /**
      * @return the loanDate
      */
-    public Date getLoanDate() {
+    public LocalDate getLoanDate() {
         return loanDate;
     }
 
     /**
      * @param loanDate the loanDate to set
      */
-    public void setLoanDate(Date loanDate) {
+    public void setLoanDate(LocalDate loanDate) {
         this.loanDate = loanDate;
     }
 
     /**
      * @return the limitDate
      */
-    public Date getLimitDate() {
+    public LocalDate getLimitDate() {
         return limitDate;
     }
 
     /**
      * @param limitDate the limitDate to set
      */
-    public void setLimitDate(Date limitDate) {
+    public void setLimitDate(LocalDate limitDate) {
         this.limitDate = limitDate;
     }
 
     /**
      * @return the reminderDate
      */
-    public Date getReminderDate() {
+    public LocalDate getReminderDate() {
         return reminderDate;
     }
 
     /**
      * @param reminderDate the reminderDate to set
      */
-    public void setReminderDate(Date reminderDate) {
+    public void setReminderDate(LocalDate reminderDate) {
         this.reminderDate = reminderDate;
     }
 

@@ -84,7 +84,7 @@ public class FXMLNewLoanController extends ControlledScreen implements Initializ
     }
 
     private boolean isValidCart(){
-        Date date = new Date(datepicker.getValue().toEpochDay());
+        LocalDate date = datepicker.getValue();
         if(date.toString().isEmpty()){
             return false;
         }
@@ -112,7 +112,7 @@ public class FXMLNewLoanController extends ControlledScreen implements Initializ
                 sum += mediatheque.getTempCart().getMedias().get(i).getCost();
             }
             for(Media m: mediatheque.getTempCart().getMedias()){
-                mediatheque.getLoansList().add(new BorrowingCard(new Date(), new Date(), new Date(), false, sum, mediatheque.getTempCart().getClient(), m));
+                mediatheque.getLoansList().add(new BorrowingCard(LocalDate.now(),datepicker.getValue(),datepicker.getValue().minusDays(3), false, sum, mediatheque.getTempCart().getClient(), m));
                 mediatheque.getTempCart().getClient().setNbCurrentLoan(mediatheque.getTempCart().getClient().getNbCurrentLoan()+1);
                 m.setNbDispo(m.getNbDispo()-1);
                 sm.getController(App.screenUserManagerID).updateDatas();

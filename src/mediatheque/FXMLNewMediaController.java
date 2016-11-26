@@ -108,7 +108,7 @@ public class FXMLNewMediaController extends ControlledScreen implements Initiali
         
         if(!tf_title.getText().isEmpty() && !tf_author.getText().isEmpty() && !tf_nbdispo.getText().isEmpty() && !((String)cb_type.getSelectionModel().getSelectedItem()).isEmpty() && !dp_date.getValue().toString().isEmpty()){
             String str = (String)cb_type.getSelectionModel().getSelectedItem();
-            Date date = new Date(dp_date.getValue().toEpochDay());
+            LocalDate date = dp_date.getValue();
             switch(str){
                 case "AUDIO":
                     if(!tf_classification.getText().isEmpty()){

@@ -4,6 +4,7 @@
 package mediatheque;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -19,7 +20,7 @@ public abstract class Media implements Serializable{
     private String type;
     private String title;
     private String author;
-    private Date year;
+    private LocalDate year;
     private boolean loanable;
     private boolean available;
     private int nbDispo;
@@ -27,7 +28,7 @@ public abstract class Media implements Serializable{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Media(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, String type){
+    public Media(String title, String author, LocalDate year, boolean loanable, boolean available, int nbDispo, String type){
         this.ID_media   = UUID.randomUUID().toString();
         this.title      = title;
         this.author     = author;
@@ -84,14 +85,14 @@ public abstract class Media implements Serializable{
     /**
      * @return the year
      */
-    public Date getYear() {
+    public LocalDate getYear() {
         return year;
     }
 
     /**
      * @param year the year to set
      */
-    public void setYear(Date year) {
+    public void setYear(LocalDate year) {
         this.year = year;
     }
 

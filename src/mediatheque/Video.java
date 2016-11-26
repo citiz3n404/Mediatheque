@@ -4,6 +4,7 @@
 package mediatheque;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -22,7 +23,7 @@ public class Video extends Media implements Serializable{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    public Video(String title, String author, Date year, boolean loanable, boolean available, int nbDispo, String legalDisclamer){
+    public Video(String title, String author, LocalDate year, boolean loanable, boolean available, int nbDispo, String legalDisclamer){
         super(title, author, year, loanable, available, nbDispo, "VIDEO");
         this.legalDisclamer = legalDisclamer;
         this.DURATION = 20;
