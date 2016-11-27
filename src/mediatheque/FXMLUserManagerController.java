@@ -90,7 +90,9 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
             Stage stage;
             stage = new Stage();
             //stage.setScene(new Scene(root));
-            stage.setTitle("My modal window");
+            
+            stage.setTitle("Panier");
+            stage.getIcons().add(new Image("file:img/icon.png"));
             stage.initModality(Modality.APPLICATION_MODAL);
             
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewLoan.fxml"));
@@ -206,7 +208,8 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
             Stage stage;
             stage = new Stage();
             //stage.setScene(new Scene(root));
-            stage.setTitle("My modal window");
+            stage.setTitle("New user");
+            stage.getIcons().add(new Image("file:img/icon.png"));
             stage.initModality(Modality.APPLICATION_MODAL);
             
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewUser.fxml"));
@@ -232,6 +235,8 @@ public class FXMLUserManagerController extends ControlledScreen implements Initi
                 stage = new Stage();
                 //stage.setScene(new Scene(root));
                 stage.setTitle("Edit User");
+               
+                stage.getIcons().add(new Image("file:img/icon.png"));
                 stage.initModality(Modality.APPLICATION_MODAL);
 
                 FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLEditUser.fxml"));

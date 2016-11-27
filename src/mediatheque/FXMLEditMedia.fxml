@@ -46,7 +46,7 @@
    <left>
       <Pane prefHeight="703.0" prefWidth="54.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="-40.0" layoutY="76.0" rotate="-90.0" text="NEW MEDIA">
+            <Label layoutX="-38.0" layoutY="76.0" rotate="-90.0" text="EDIT MEDIA">
                <font>
                   <Font size="24.0" />
                </font>

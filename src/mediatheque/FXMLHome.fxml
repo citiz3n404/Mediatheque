@@ -226,6 +226,7 @@
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
                 <Button mnemonicParsing="false" onAction="#goToScreenOutstandingLoad" text="VOIR TOUS LES EMPRUNTS EN COURS" />
+                  <Button mnemonicParsing="false" onAction="#handleSaveAction" text="SAVE" />
               </buttons>
                <VBox.margin>
                   <Insets right="40.0" />

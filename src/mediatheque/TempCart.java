@@ -18,7 +18,7 @@ import mediatheque.Media;
  * @author  Anthony CHAFFOT
  */
 public class TempCart {
-    private Client client = new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil.png");;
+    private Client client = new Client("NC", "", new Adress(0, "street", "country", "city", 0 ),"file:img/profil.png");;
     private ObservableList<Media> medias = FXCollections.observableArrayList();
 
     //**************************************************************************

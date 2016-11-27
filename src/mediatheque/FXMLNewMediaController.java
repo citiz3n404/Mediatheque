@@ -129,6 +129,7 @@ public class FXMLNewMediaController extends ControlledScreen implements Initiali
                     }
                     break;
             }
+            mediatheque.saveManager.save();
         }
                 
     }

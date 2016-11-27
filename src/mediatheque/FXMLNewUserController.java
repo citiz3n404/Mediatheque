@@ -62,7 +62,7 @@ public class FXMLNewUserController extends ControlledScreen implements Initializ
             }else{
                 mediatheque.addCLient(new Client(tf_firstName.getText(), tf_lastName.getText(), new Adress(Integer.parseInt(tf_number.getText()), tf_street.getText(), tf_country.getText(),tf_city.getText(), Integer.parseInt(tf_zipcode.getText())), "file:img/profil2.png"));
             }
-            
+            mediatheque.saveManager.save();
             ((Node)event.getSource()).getScene().getWindow().hide();
         }
         

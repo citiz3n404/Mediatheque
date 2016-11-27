@@ -130,6 +130,7 @@ public class FXMLEditMediaController extends ControlledScreen implements Initial
                     break;
             }
             sm.getController(App.screenMediaManagerID).updateDatas();
+            mediatheque.saveManager.save();
         }
                 
     }

@@ -133,7 +133,7 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
     @FXML
     private void handleAddtoCartAction(ActionEvent event) {
         Media m = tableMedias.getSelectionModel().getSelectedItem();
-        if(m.getNbDispo() == 0){
+        if(m == null || m.getNbDispo() == 0){
             messageLabel.setText("Produit non disponible");
         }else{
             messageLabel.setText("");
@@ -149,7 +149,8 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
             Stage stage;
             stage = new Stage();
             //stage.setScene(new Scene(root));
-            stage.setTitle("My modal window");
+            stage.setTitle("Panier");
+            stage.getIcons().add(new Image("file:img/icon.png"));
             stage.initModality(Modality.APPLICATION_MODAL);
             
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewLoan.fxml"));
@@ -173,6 +174,8 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
             stage = new Stage();
             //stage.setScene(new Scene(root));
             stage.setTitle("New Media");
+            stage.getIcons().add(new Image("file:img/icon.png"));
+            
             stage.initModality(Modality.APPLICATION_MODAL);
             
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewMedia.fxml"));
@@ -199,6 +202,7 @@ public class FXMLMediaManagerController extends ControlledScreen implements Init
                 stage = new Stage();
                 //stage.setScene(new Scene(root));
                 stage.setTitle("Edit Media");
+                stage.getIcons().add(new Image("file:img/icon.png"));
                 stage.initModality(Modality.APPLICATION_MODAL);
 
                 FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLEditMedia.fxml"));

@@ -31,29 +31,9 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         ScreensManager mainContainer = new ScreensManager();
         Mediatheque m = new Mediatheque("Mediatheque");
-        SaveManager saveManager = new SaveManager(m);
         
-        saveManager.load();
-        /*m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("Bernard", "KIKOU", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("Benjamin", "KRAFFT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("Jessica", "FAVIN", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/girl.png"));
-        m.getClientsList().add(new Client("Sofian", "DAHOU", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("Anthony", "CHAFFOT", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
-        m.getClientsList().add(new Client("TEST", "HELLO", new Adress(1, "Rue kleber", "France", "LGC", 92250),"file:img/profil2.png"));
         
-        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 15, "RAP/ROCK"));
-        m.getMediasList().add(new Audio("Symphone 7", "Beethoven", new Date(), true, true, 2, "CLASSIC"));
-        m.getMediasList().add(new Livre("Improbable", "Adam Fawer", new Date(), true, true, 5, 30));
-        m.getMediasList().add(new Video("Interstellar", "Christopher Nolan", new Date(), true, true, 3, "MIT Licence"));
-        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 4, "RAP/ROCK"));
-        m.getMediasList().add(new Audio("Meteora", "LinkinPark", new Date(), true, true, 8, "JAZZ"));
-        m.getMediasList().add(new Video("V for Vendetta", "James McTeigue", new Date(), true, true, 15, "MIT Licence"));*/
+        m.saveManager.load();
        
         
         mainContainer.loadScreen(App.screenHomeID, App.screenHomeFile, m);

@@ -86,7 +86,8 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
             Stage stage;
             stage = new Stage();
             //stage.setScene(new Scene(root));
-            stage.setTitle("My modal window");
+            stage.setTitle("New user");
+            stage.getIcons().add(new Image("file:img/icon.png"));
             stage.initModality(Modality.APPLICATION_MODAL);
             
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewUser.fxml"));
@@ -109,7 +110,8 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
             Stage stage;
             stage = new Stage();
             //stage.setScene(new Scene(root));
-            stage.setTitle("My modal window");
+            stage.setTitle("Panier");
+            stage.getIcons().add(new Image("file:img/icon.png"));
             stage.initModality(Modality.APPLICATION_MODAL);
             
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewLoan.fxml"));
@@ -133,6 +135,7 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
             stage = new Stage();
             //stage.setScene(new Scene(root));
             stage.setTitle("New Media");
+            stage.getIcons().add(new Image("file:img/icon.png"));
             stage.initModality(Modality.APPLICATION_MODAL);
             
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewMedia.fxml"));
@@ -161,7 +164,7 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
         mediaCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getMedia().getTitle()));
         reminderCol.setCellValueFactory(new PropertyValueFactory<>("reminderDate"));
         limitCol.setCellValueFactory(new PropertyValueFactory<>("limitDate"));
-        overdatedCol.setCellValueFactory(new PropertyValueFactory<>("overDated"));
+        overdatedCol.setCellValueFactory(new PropertyValueFactory<>("rendu"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
         titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
     }    
@@ -178,6 +181,13 @@ public class FXMLHomeController extends ControlledScreen implements Initializabl
     public void updateDatas() {
         tempUserLabel.setText(mediatheque.getTempCart().getClient().getFirstName()+" "+mediatheque.getTempCart().getClient().getLastName());
         tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
+        tableLoan.getColumns().get(0).setVisible(false);
+        tableLoan.getColumns().get(0).setVisible(true);
+    }
+
+    @FXML
+    private void handleSaveAction(ActionEvent event) {
+        mediatheque.saveManager.save();
     }
     
 }

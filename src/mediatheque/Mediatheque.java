@@ -22,6 +22,7 @@ public class Mediatheque {
     private ObservableList<BorrowingCard> loansList = FXCollections.observableArrayList();
     private TempCart tempCart = new TempCart();
     private TempEdit tempEdit = new TempEdit();
+    public SaveManager saveManager = new SaveManager(this);
     
     //**************************************************************************
     // CONSTRUCTOR

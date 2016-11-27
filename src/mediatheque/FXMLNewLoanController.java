@@ -88,14 +88,18 @@ public class FXMLNewLoanController extends ControlledScreen implements Initializ
         if(date.toString().isEmpty()){
             return false;
         }
-        if(mediatheque.getTempCart().getMedias().size() == 0){
+        
+        if(mediatheque.getTempCart().getClient() == null || mediatheque.getTempCart().getClient().getFirstName().equals("NC")){
+            return false;
+        }
+        if(mediatheque.getTempCart().getMedias().isEmpty()){
             return false;
         }
         for(int i=0; i<mediatheque.getTempCart().getMedias().size(); i++){
             if(!mediatheque.getTempCart().getMedias().get(i).isAvailable() || !mediatheque.getTempCart().getMedias().get(i).isLoanable()){
                 return false;
             }
-            if(mediatheque.getTempCart().getMedias().get(i).getNbDispo()-1 <= 0){
+            if(mediatheque.getTempCart().getMedias().get(i).getNbDispo()-1 <= -1){
                 return false;
             }
         }
@@ -112,11 +116,17 @@ public class FXMLNewLoanController extends ControlledScreen implements Initializ
                 sum += mediatheque.getTempCart().getMedias().get(i).getCost();
             }
             for(Media m: mediatheque.getTempCart().getMedias()){
-                mediatheque.getLoansList().add(new BorrowingCard(LocalDate.now(),datepicker.getValue(),datepicker.getValue().minusDays(3), false, sum, mediatheque.getTempCart().getClient(), m));
-                mediatheque.getTempCart().getClient().setNbCurrentLoan(mediatheque.getTempCart().getClient().getNbCurrentLoan()+1);
-                m.setNbDispo(m.getNbDispo()-1);
-                sm.getController(App.screenUserManagerID).updateDatas();
-                sm.getController(App.screenMediaManagerID).updateDatas();
+                if(m.getNbDispo()-1 == -1){
+                    
+                }else{
+                    mediatheque.getLoansList().add(new BorrowingCard(LocalDate.now(),datepicker.getValue(),datepicker.getValue().minusDays(3), false, sum, mediatheque.getTempCart().getClient(), m));
+                    mediatheque.getTempCart().getClient().setNbCurrentLoan(mediatheque.getTempCart().getClient().getNbCurrentLoan()+1);
+                    m.setNbDispo(m.getNbDispo()-1);
+                    sm.getController(App.screenUserManagerID).updateDatas();
+                    sm.getController(App.screenMediaManagerID).updateDatas();
+                    mediatheque.saveManager.save();
+                }
+                
             }
             mediatheque.getTempCart().getMedias().clear();
             ((Node)event.getSource()).getScene().getWindow().hide();
@@ -132,6 +142,7 @@ public class FXMLNewLoanController extends ControlledScreen implements Initializ
             sum += mediatheque.getTempCart().getMedias().get(i).getCost();
         }
         pricelLabel.setText(""+sum);
+        mediatheque.saveManager.save();
     }
 
     @FXML

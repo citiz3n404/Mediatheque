@@ -119,7 +119,7 @@ public class FXMLOutStandingLoanController extends ControlledScreen implements I
         mediaCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getMedia().getTitle()));
         reminderCol.setCellValueFactory(new PropertyValueFactory<>("reminderDate"));
         limitCol.setCellValueFactory(new PropertyValueFactory<>("limitDate"));
-        overdatedCol.setCellValueFactory(new PropertyValueFactory<>("overDated"));
+        overdatedCol.setCellValueFactory(new PropertyValueFactory<>("rendu"));
         titleCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getMedia().getTitle()));
         renduCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getLimitDate().toString()));
            
@@ -131,7 +131,8 @@ public class FXMLOutStandingLoanController extends ControlledScreen implements I
             Stage stage;
             stage = new Stage();
             //stage.setScene(new Scene(root));
-            stage.setTitle("My modal window");
+            stage.setTitle("Panier");
+            stage.getIcons().add(new Image("file:img/icon.png"));
             stage.initModality(Modality.APPLICATION_MODAL);
             
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource("FXMLNewLoan.fxml"));
@@ -174,8 +175,6 @@ public class FXMLOutStandingLoanController extends ControlledScreen implements I
                 }
                 tableUserLoan.setItems(tempList);
                 
-                
-                
             }
         });
     }
@@ -185,7 +184,20 @@ public class FXMLOutStandingLoanController extends ControlledScreen implements I
         
         tempUserLabel.setText(mediatheque.getTempCart().getClient().getFirstName()+" "+mediatheque.getTempCart().getClient().getLastName());
         tempMediasLabel.setText(mediatheque.getTempCart().getMedias().size()+"");
+        tableLoan.getColumns().get(0).setVisible(false);
+        tableLoan.getColumns().get(0).setVisible(true);
         
+    }
+
+    @FXML
+    private void handleRenduAction(ActionEvent event) {
+        if(tableLoan.getSelectionModel().getSelectedItem() != null){
+            tableLoan.getSelectionModel().getSelectedItem().setRendu(true);
+            tableLoan.getSelectionModel().getSelectedItem().getMedia().setNbDispo(tableLoan.getSelectionModel().getSelectedItem().getMedia().getNbDispo()+1);
+            sm.getController(App.screenHomeID).updateDatas();
+            sm.getController(App.screenOutStandingLoanID).updateDatas();
+            mediatheque.saveManager.save();
+        }
     }
     
 }

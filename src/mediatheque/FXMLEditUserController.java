@@ -81,6 +81,7 @@ public class FXMLEditUserController extends ControlledScreen implements Initiali
             
             mediatheque.getTempEdit().getC().setAdress(new Adress(Integer.parseInt(tf_number.getText()), tf_street.getText(), tf_country.getText(), tf_city.getText(), Integer.parseInt(tf_zipcode.getText())));
             sm.getController(App.screenUserManagerID).updateDatas();
+            mediatheque.saveManager.save();
             ((Node)event.getSource()).getScene().getWindow().hide();
         }        
     }

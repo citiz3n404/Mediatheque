@@ -20,6 +20,7 @@ public class BorrowingCard implements Serializable{
     private LocalDate        limitDate;
     private LocalDate       reminderDate;
     private boolean     overDated;
+    private boolean     rendu;
     private double      cost;
     private Client      client;
     private Media       media;
@@ -37,6 +38,7 @@ public class BorrowingCard implements Serializable{
         this.ID_card        = UUID.randomUUID().toString();
         this.client         = client;
         this.media          = media;
+        this.rendu          = false;
     }
 
     //**************************************************************************
@@ -143,6 +145,20 @@ public class BorrowingCard implements Serializable{
      */
     public void setMedia(Media media) {
         this.media = media;
+    }
+
+    /**
+     * @return the rendu
+     */
+    public boolean isRendu() {
+        return rendu;
+    }
+
+    /**
+     * @param rendu the rendu to set
+     */
+    public void setRendu(boolean rendu) {
+        this.rendu = rendu;
     }
 
    
